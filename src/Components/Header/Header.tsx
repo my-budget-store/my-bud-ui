@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { BackDrop } from "Shared/BackDrop";
+import { useState } from "react";
+import { BackDrop } from "Components/UI/BackDrop";
 import { MenuSideBar } from "Components/MenuSidebar/MenuSidebar";
 import { AccountSidebar } from "Components/AccountSidebar/AccountSidebar";
 import { WindowSize } from "Shared/Helpers";
@@ -15,7 +15,7 @@ import {
 import "Components/Header/Header.css";
 import { getCookie } from "Shared/CookieHelper";
 
-export const Header = (props:any) => {
+export const Header = (props: any) => {
   const [isSideMenuDrawerVisible, setSideMenuVisibility] = useState(false);
   const ShowMenuSideDrawer = (bool: boolean) => setSideMenuVisibility(bool);
   const clickMenuBarHandler = () => {
@@ -41,17 +41,15 @@ export const Header = (props:any) => {
     // name of product
     name: string;
   }
-
-  const [productsData, setProductsData] = useState([]);
   const tokenStr = getCookie("token");
-  const handleProductsMouseOver = () => {
-    axios
-      .get("https://localhost:7101/mybud/products", {
+  const [productsData, setProductsData] = useState([]);
+
+  const handleProductsMouseOver = async () => {
+    const response = await axios
+      .get("https://localhost:7101/mybud/v1/products", {
         headers: { Authorization: `Bearer ${tokenStr}` },
-      })
-      .then((response) => {
-        setProductsData(response.data);
       });
+    setProductsData(response.data);
   };
 
   const [, width] = WindowSize();
@@ -117,7 +115,6 @@ export const Header = (props:any) => {
             {productsData.map((product: Product) => (
               <a href="/">{product.name}</a>
             ))}
-            <a href="/">Link 1</a>
           </div>
         </li>
         <input
