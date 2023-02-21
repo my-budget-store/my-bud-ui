@@ -1,4 +1,4 @@
-import { ComponentProps, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import AuthService from "Services/AuthService";
 
@@ -31,9 +31,9 @@ export const Login = (props: any) => {
               placeholder="username"
               onChange={(e) => setUserName(e.target.value)}
             />
-            <br></br>
+            <br />
             <label>Password</label>
-            <br></br>
+            <br />
             <input
               type="text"
               value={password}

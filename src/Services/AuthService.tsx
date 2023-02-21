@@ -8,42 +8,43 @@ const AuthService = {
   ValidateUserToken: () => {
     const token = getCookie("token");
     if (token) {
-      try {
-        AxiosHelper.createApiEndpoint(
-          AuthApi.BaseUrl,
-          AuthApi.Endpoint.TokenValidate
-        )
-          .postWithParams({
-            params: {
-              token,
-            },
-          })
-          .then((response) => {
-            if (response.data) {
-              return true;
-            }
-          });
-        return true;
-      } catch (err) {
-        return false;
-      }
+      return AxiosHelper.createApiEndpoint(
+        AuthApi.BaseUrl,
+        AuthApi.Endpoint.TokenValidate
+      )
+        .postWithParams({
+          params: {
+            token,
+          },
+        })
+        .then((response) => {
+          if (response.data) {
+            return true;
+          } else {
+            return false;
+          }
+        });
     }
-
     return false;
   },
 
   Login: async (username: string, password: string) => {
-    const response = await axios
-      .post(AuthApi.BaseUrl + AuthApi.Endpoint.UserLogin, {
+    return await AxiosHelper.createApiEndpoint(
+      AuthApi.BaseUrl,
+      AuthApi.Endpoint.UserLogin
+    )
+      .post({
         username,
         password,
+      })
+      .then((response) => {
+        if (response.data) {
+          setCookie("token", response.data.token);
+          return true;
+        } else {
+          return false;
+        }
       });
-    if (response.data) {
-      setCookie("token", response.data.token);
-      return true;
-    } else {
-      return false;
-    }
   },
 
   Logout: () => {

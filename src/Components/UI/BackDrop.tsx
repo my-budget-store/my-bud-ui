@@ -1,4 +1,4 @@
-import "./Shared.css";
+import "Shared/Shared.css";
 
 export const BackDrop = (props: any) => {
 
