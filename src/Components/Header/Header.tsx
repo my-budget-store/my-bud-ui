@@ -44,13 +44,15 @@ export const Header = (props: any) => {
   const tokenStr = getCookie("token");
   const [productsData, setProductsData] = useState([]);
 
-  const handleProductsMouseOver = async () => {
-    const response = await axios
+  function HandleProductsMouseOver() {
+    axios
       .get("https://localhost:7101/mybud/v1/products", {
         headers: { Authorization: `Bearer ${tokenStr}` },
+      })
+      .then((response) => {
+        setProductsData(response.data);
       });
-    setProductsData(response.data);
-  };
+  }
 
   const [, width] = WindowSize();
   if (width < 768) {
@@ -104,14 +106,15 @@ export const Header = (props: any) => {
           </a>
         </li>
         <li className="header-li">
-          <a href="/products" className="nav-link">
+          <a
+            href="/products"
+            className="nav-link"
+            onMouseOver={HandleProductsMouseOver}
+          >
             <MenuIcon className="icons-size" />
             Products
           </a>
-          <div
-            className="dropdown-content"
-            onMouseOver={handleProductsMouseOver}
-          >
+          <div className="dropdown-content">
             {productsData.map((product: Product) => (
               <a href="/">{product.name}</a>
             ))}
