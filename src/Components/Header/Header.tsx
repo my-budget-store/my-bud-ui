@@ -124,7 +124,7 @@ export const Header = (props: any) => {
           placeholder="Search..."
           className="search-bar-style"
           onChange={MaintainSearchValueHandler}
-          value={searchValue}
+          value={searchValue} 
         />
         <li className="spacer" />
         {!props.isUserLoggedIn ? (
