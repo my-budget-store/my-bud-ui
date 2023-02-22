@@ -1,4 +1,4 @@
-import "Shared/Shared.css";
+import "Components/UI/BackDrop.css";
 
 export const BackDrop = (props: any) => {
   const clickBackDropHandler = () => {
