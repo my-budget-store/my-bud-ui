@@ -24,7 +24,6 @@ const AuthService = {
           }
         });
     }
-    return false;
   },
 
   Login: async (username: string, password: string) => {

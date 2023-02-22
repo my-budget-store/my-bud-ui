@@ -69,5 +69,3 @@ export const CompactHeader = (props: any) => {
     </>
   );
 };
-
-export default CompactHeader;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useWindowSize } from "CustomHooks";
-import CompactHeader from "./CompactHeader";
-import DesktopHeader from "./FullHeader";
+import { CompactHeader } from "./CompactHeader";
+import { DesktopHeader } from "./FullHeader";
 import { PublicHeader } from "./PublicHeader";
 
 export const Header = (props: any) => {

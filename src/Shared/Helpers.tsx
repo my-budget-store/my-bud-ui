@@ -14,13 +14,12 @@ export const removeCookie = (name: string) => {
 };
 
 export const HttpRequest = (path: string) => {
-  let url = path + "/";
   return {
-    fetch: () => axios.get(url),
-    fetchById: (id: any) => axios.get(url + id),
-    post: (newRecord: any) => axios.post(url, newRecord),
-    postWithParams: (params: any) => axios.post(url, null, params),
-    put: (id: any, updatedRecord: any) => axios.put(url + id, updatedRecord),
-    delete: (id: any) => axios.delete(url + id),
+    fetch: () => axios.get(path),
+    fetchById: (id: any) => axios.get(path + id),
+    post: (newRecord: any) => axios.post(path, newRecord),
+    postWithParams: (params: any) => axios.post(path, null, params),
+    put: (id: any, updatedRecord: any) => axios.put(path + id, updatedRecord),
+    delete: (id: any) => axios.delete(path + id),
   };
 };

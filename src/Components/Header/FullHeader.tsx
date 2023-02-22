@@ -36,9 +36,9 @@ export const DesktopHeader = (props: any) => {
             MyBud
           </a>
         </li>
-        <li>
+        <li className="products-dropdown">
           <a
-            href="/products"
+            href="/"
             className="nav-link"
             onMouseOver={HandleProductsMouseOver}
           >
@@ -51,12 +51,14 @@ export const DesktopHeader = (props: any) => {
             ))}
           </div>
         </li>
-        <input
-          placeholder="Search..."
-          className="search-bar-style"
-          onChange={props.SearchValueChangeHandler}
-          value={props.searchValue}
-        />
+        <li>
+          <input
+            placeholder="Search..."
+            className="search-bar-style"
+            onChange={props.SearchValueChangeHandler}
+            value={props.searchValue}
+          />
+        </li>
         <li className="spacer" />
         {!props.isUserLoggedIn ? (
           <li>
@@ -91,5 +93,3 @@ export const DesktopHeader = (props: any) => {
     </header>
   );
 };
-
-export default DesktopHeader;
