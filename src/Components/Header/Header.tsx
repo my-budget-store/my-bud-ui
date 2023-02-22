@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useWindowSize } from "Utilities/useWindowSizeHook";
+import { useWindowSize } from "Hooks/useWindowSizeHook";
 import { CompactHeader } from "./CompactHeader";
 import { FullHeader } from "./FullHeader";
 import { PublicHeader } from "./PublicHeader";
