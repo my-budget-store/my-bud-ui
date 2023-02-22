@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Header } from "Components/Header/Header";
-import { AppRoutes } from "./AppRoutes";
+import { AppRoutes } from "./Routes/AppRoutes";
 import AuthService from "Services/AuthService";
 import "./Components/Login/Login.css";
 
