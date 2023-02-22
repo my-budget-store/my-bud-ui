@@ -18,7 +18,12 @@ export const Login = (props: any) => {
     <form onSubmit={handleSubmit} className="login-form">
       <h1>Sign In</h1>
       <label>Username</label>
-      {newFunction("username",userName, setUserName)}
+      <input
+        type="text"
+        placeholder="userName"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+      />
       <label>Password</label>
       <input
         type="text"
@@ -30,18 +35,3 @@ export const Login = (props: any) => {
     </form>
   );
 };
-function newFunction(
-  placeHolderText: string,
-  inputValue: string,
-  setInputValueContext: any
-) {
-  const newLocal = "username";
-  return (
-    <input
-      type="text"
-      placeholder={placeHolderText}
-      value={inputValue}
-      onChange={(e) => setInputValueContext(e.target.value)}
-    />
-  );
-}

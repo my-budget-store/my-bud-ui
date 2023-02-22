@@ -1,12 +1,5 @@
 .show-account-side-menu {
-  margin-right: -16px;
+  margin-top: 0;
   right: 0;
-}
-
-.right-side-menu {
-  padding-right: 25px;
-}
-
-.right-sidebar-items {
-  padding-left: 35px;
+  padding-left: 0;
 }

@@ -1,12 +1,5 @@
-.show-side-menu { 
+.show-side-menu {
   left: 0;
-  margin-left: -16px;
-}
-
-.left-side-menu {
-  padding-left: 25px;
-}
-
-.left-sidebar-items {
-  padding-left: 35px;
+  margin-top: 0px;
+  padding-left: 0px;
 }

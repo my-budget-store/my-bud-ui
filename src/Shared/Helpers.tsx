@@ -1,18 +1,26 @@
-import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import axios from "axios";
 
-export const WindowSize = () => {
-  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+export const setCookie = (name: string, value: string) => {
+  Cookies.set(name, value);
+};
 
-  // Listening for the window resize event
-  useEffect(() => {
-    const resizeHandler = () => {
-      setSize([window.innerHeight, window.innerWidth]);
-    };
-    window.addEventListener("resize", resizeHandler);
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
-  }, []);
+export const getCookie = (name: string) => {
+  return Cookies.get(name);
+};
 
-  return size;
+export const removeCookie = (name: string) => {
+  return Cookies.remove(name);
+};
+
+export const HttpRequest = (path: string) => {
+  let url = path + "/";
+  return {
+    fetch: () => axios.get(url),
+    fetchById: (id: any) => axios.get(url + id),
+    post: (newRecord: any) => axios.post(url, newRecord),
+    postWithParams: (params: any) => axios.post(url, null, params),
+    put: (id: any, updatedRecord: any) => axios.put(url + id, updatedRecord),
+    delete: (id: any) => axios.delete(url + id),
+  };
 };
