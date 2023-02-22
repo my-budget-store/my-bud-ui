@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useWindowSize } from "Utilities/useWindowSizeHook";
 import { CompactHeader } from "./CompactHeader";
-import { DesktopHeader } from "./FullHeader";
+import { FullHeader } from "./FullHeader";
 import { PublicHeader } from "./PublicHeader";
 
 export const Header = (props: any) => {
@@ -22,7 +22,7 @@ export const Header = (props: any) => {
             searchValue={searchValue}
           />
         ) : (
-          <DesktopHeader
+          <FullHeader
             SearchValueChangeHandler={SearchValueChangeHandler}
             searchValue={searchValue}
             isUserLoggedIn={props.isUserLoggedIn}

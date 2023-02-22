@@ -11,7 +11,7 @@ import {
 import "Components/Header/Header.css";
 import { getCookie } from "Shared/Helpers";
 
-export const DesktopHeader = (props: any) => {
+export const FullHeader = (props: any) => {
   interface Product {
     name: string;
   }

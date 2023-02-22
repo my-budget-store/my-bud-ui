@@ -1,15 +1,14 @@
 import "Shared/Shared.css";
 
 export const BackDrop = (props: any) => {
-
   const clickBackDropHandler = () => {
-    if (props.ShowMenuSideDrawer) {
-      props.ShowMenuSideDrawer(false);
+    if (props.ToggleMenuSideDrawer) {
+      props.ToggleMenuSideDrawer(false);
     }
-    if (props.ShowAccountSideDrawer) {
-      props.ShowAccountSideDrawer(false);
+    if (props.ToggleAccountSideDrawer) {
+      props.ToggleAccountSideDrawer(false);
     }
   };
 
   return <div className="back-drop-div" onClick={clickBackDropHandler} />;
-}
+};

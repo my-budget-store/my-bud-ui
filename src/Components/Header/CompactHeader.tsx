@@ -12,36 +12,28 @@ export const CompactHeader = (props: any) => {
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
 
-  const ShowMenuSideDrawer = (bool: boolean) =>
-    setMenuSideDrawerVisibility(bool);
-
-  const clickMenuBarHandler = () => {
-    ShowMenuSideDrawer(true);
-  };
-
   const [isAccountSideDrawerVisible, setAccountSideDrawerVisibility] =
     useState(false);
 
-  const ShowAccountSideDrawer = (bool: boolean) =>
-    setAccountSideDrawerVisibility(bool);
+  const ToggleMenuSideDrawer = (toggle: boolean) =>
+    setMenuSideDrawerVisibility(toggle);
 
-  const clickAccountBarHandler = () => {
-    ShowAccountSideDrawer(true);
-  };
+  const ToggleAccountSideDrawer = (toggle: boolean) =>
+    setAccountSideDrawerVisibility(toggle);
 
-  if (isAccountSideDrawerVisible) {
-    return (
-      <>
-        <AccountSidebar />
-        <BackDrop ShowAccountSideDrawer={ShowAccountSideDrawer} />
-      </>
-    );
-  }
   if (isMenuSideDrawerVisible) {
     return (
       <>
         <MenuSideBar />
-        <BackDrop ShowMenuSideDrawer={ShowMenuSideDrawer} />
+        <BackDrop ToggleMenuSideDrawer={ToggleMenuSideDrawer} />
+      </>
+    );
+  }
+  if (isAccountSideDrawerVisible) {
+    return (
+      <>
+        <AccountSidebar />
+        <BackDrop ToggleAccountSideDrawer={ToggleAccountSideDrawer} />
       </>
     );
   }
@@ -49,14 +41,14 @@ export const CompactHeader = (props: any) => {
     <>
       <div className="compactheader">
         <div className="menu-account-toggle">
-          <MenuIcon onClick={clickMenuBarHandler} />
+          <MenuIcon onClick={() => ToggleMenuSideDrawer(true)} />
         </div>
         <a href="/" className="nav-link">
           MyBud
         </a>
         <div className="spacer" />
         <div className="menu-account-toggle">
-          <AccountCircleIcon onClick={clickAccountBarHandler} />
+          <AccountCircleIcon onClick={() => ToggleAccountSideDrawer(true)} />
         </div>
       </div>
       <div className="compactheader">
