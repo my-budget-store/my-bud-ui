@@ -1,8 +1,7 @@
+const BaseUrl = "https://localhost:7121/api/auth/";
+
 export const AuthApi = {
-  BaseUrl: "https://localhost:7121/api/auth/",
-  Endpoint: {
-    UserLogin: "user/login",
-    UserRegister: "user/register",
-    TokenValidate: "token/validate",
-  },
+  LoginUser: BaseUrl + "user/login",
+  RegisterUser: BaseUrl + "user/register",
+  ValidateToken: BaseUrl + "token/validate",
 };

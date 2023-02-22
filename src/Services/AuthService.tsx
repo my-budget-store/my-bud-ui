@@ -1,17 +1,16 @@
-import axios from "axios";
 import { AuthApi } from "Constants/ApiConstants";
-import { getCookie, setCookie } from "Shared/CookieHelper";
-import Cookies from "js-cookie";
-import AxiosHelper from "Shared/AxiosHelper";
+import {
+  getCookie,
+  setCookie,
+  removeCookie,
+  HttpRequest,
+} from "Shared/Helpers";
 
 const AuthService = {
   ValidateUserToken: () => {
     const token = getCookie("token");
     if (token) {
-      return AxiosHelper.createApiEndpoint(
-        AuthApi.BaseUrl,
-        AuthApi.Endpoint.TokenValidate
-      )
+      return HttpRequest(AuthApi.ValidateToken)
         .postWithParams({
           params: {
             token,
@@ -25,14 +24,10 @@ const AuthService = {
           }
         });
     }
-    return false;
   },
 
   Login: async (username: string, password: string) => {
-    return await AxiosHelper.createApiEndpoint(
-      AuthApi.BaseUrl,
-      AuthApi.Endpoint.UserLogin
-    )
+    return await HttpRequest(AuthApi.LoginUser)
       .post({
         username,
         password,
@@ -48,23 +43,15 @@ const AuthService = {
   },
 
   Logout: () => {
-    Cookies.remove("token");
+    removeCookie("token");
   },
 
   Register: (username: string, email: string, password: string) => {
-    return axios.post(AuthApi.BaseUrl + "signup", {
+    return HttpRequest(AuthApi.RegisterUser).post({
       username,
       email,
       password,
     });
-  },
-
-  GetCurrentUser: () => {
-    if (Cookies.get("token")) {
-      return Cookies.get("token");
-    } else {
-      return undefined;
-    }
   },
 };
 

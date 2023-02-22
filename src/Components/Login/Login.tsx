@@ -7,44 +7,31 @@ export const Login = (props: any) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
     const isSuccess = await AuthService.Login(userName, password);
     if (isSuccess) props.onLogin();
-
     navigate("/", { replace: true });
   };
 
   return (
-    <div className="active">
-      <div className="login-form">
-        <div className="form-box solid">
-          <form onSubmit={handleSubmit}>
-            <h1 className="login-text">Sign In</h1>
-            <br></br>
-            <label>Username</label>
-            <br></br>
-            <input
-              type="text"
-              value={userName}
-              placeholder="username"
-              onChange={(e) => setUserName(e.target.value)}
-            />
-            <br />
-            <label>Password</label>
-            <br />
-            <input
-              type="text"
-              value={password}
-              placeholder="username"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br></br>
-            <input type="submit" value="LOGIN" className="login-btn" />
-          </form>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit} className="login-form">
+      <h1>Sign In</h1>
+      <label>Username</label>
+      <input
+        type="text"
+        placeholder="userName"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+      />
+      <label>Password</label>
+      <input
+        type="text"
+        value={password}
+        placeholder="password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input type="submit" />
+    </form>
   );
 };
