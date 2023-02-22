@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import {
   AccountCircle as AccountCircleIcon,
@@ -10,14 +10,17 @@ import {
 } from "@mui/icons-material";
 import "Components/Header/Header.css";
 import { getCookie } from "Shared/Helpers";
+import { AuthContext } from "Store/AuthContext";
 
 export const FullHeader = (props: any) => {
   interface Product {
     name: string;
   }
+  const authContext = useContext(AuthContext);
 
   const tokenStr = getCookie("token");
   const [productsData, setProductsData] = useState([]);
+  
   function HandleProductsMouseOver() {
     axios
       .get("https://localhost:7101/mybud/v1/products", {
@@ -60,7 +63,7 @@ export const FullHeader = (props: any) => {
           />
         </li>
         <li className="spacer" />
-        {!props.isUserLoggedIn ? (
+        {!authContext.isUserLoggedIn ? (
           <li>
             <a href="/Login" className="nav-link">
               <LoginIcon className="icons-size" />

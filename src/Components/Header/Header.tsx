@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useWindowSize } from "Hooks/useWindowSizeHook";
 import { CompactHeader } from "./CompactHeader";
 import { FullHeader } from "./FullHeader";
 import { PublicHeader } from "./PublicHeader";
+import { AuthContext } from "Store/AuthContext";
 
 export const Header = (props: any) => {
   const [searchValue, setSearchValue] = useState("");
@@ -11,11 +12,11 @@ export const Header = (props: any) => {
     const value = e.target.value.toLowerCase();
     UpdateSearchValue(value);
   };
-
+  const authContext = useContext(AuthContext);
   const [, width] = useWindowSize();
   return (
     <>
-      {props.isUserLoggedIn ? (
+      {authContext.isUserLoggedIn ? (
         width < 768 ? (
           <CompactHeader
             SearchValueChangeHandler={SearchValueChangeHandler}
@@ -25,7 +26,6 @@ export const Header = (props: any) => {
           <FullHeader
             SearchValueChangeHandler={SearchValueChangeHandler}
             searchValue={searchValue}
-            isUserLoggedIn={props.isUserLoggedIn}
           />
         )
       ) : (
