@@ -15,6 +15,7 @@ export const AuthContextProvider = (props: any) => {
   };
 
   const onLogoutHandler = () => {
+    AuthService.Logout();
     setIsUserLoggedIn(false);
   };
 

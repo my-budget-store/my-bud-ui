@@ -3,7 +3,7 @@ import { Account } from "Pages/Account";
 import { Orders } from "Pages/Orders";
 import { Products } from "Pages/Products";
 import { Routes, Route } from "react-router";
-import { Login } from "Components/Login/Login";
+import { Login } from "Components/Auth/Login";
 import { Home } from "Pages/Home";
 
 export const App = () => {

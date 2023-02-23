@@ -17,8 +17,7 @@ export const FullHeader = (props: any) => {
 
   const tokenStr = getCookie("token");
   const [productsData, setProductsData] = useState([]);
-
-  function HandleProductsMouseOver() {
+  const HandleProductsMouseOver = () => {
     axios
       .get("https://localhost:7101/mybud/v1/products", {
         headers: { Authorization: `Bearer ${tokenStr}` },
@@ -26,7 +25,7 @@ export const FullHeader = (props: any) => {
       .then((response) => {
         setProductsData(response.data);
       });
-  }
+  };
   return (
     <header className="header">
       <ul className="ul">
@@ -36,7 +35,7 @@ export const FullHeader = (props: any) => {
             MyBud
           </a>
         </li>
-        <li className="products-dropdown">
+        <li className="dropdown">
           <a
             href="/"
             className="nav-link"
@@ -76,5 +75,3 @@ export const FullHeader = (props: any) => {
     </header>
   );
 };
-
-

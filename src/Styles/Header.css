@@ -36,11 +36,11 @@
   z-index: 300;
 }
 
-.products-dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
 }
 
-.products-dropdown:hover {
+.dropdown:hover {
   color: rgb(122, 115, 115);
 }
 

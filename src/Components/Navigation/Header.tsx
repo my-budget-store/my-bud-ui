@@ -13,18 +13,19 @@ export const Header = () => {
     const value = e.target.value.toLowerCase();
     UpdateSearchValue(value);
   };
+  //TODO: implement redux for searchvaluehandler
   const authContext = useContext(AuthContext);
-  const [, width] = useWindowSize();
+  const isDesktopMode = useWindowSize();
   return (
     <>
       {authContext.isUserLoggedIn ? (
-        width < 768 ? (
-          <CompactHeader
+        isDesktopMode ? (
+          <FullHeader
             SearchValueChangeHandler={SearchValueChangeHandler}
             searchValue={searchValue}
           />
         ) : (
-          <FullHeader
+          <CompactHeader
             SearchValueChangeHandler={SearchValueChangeHandler}
             searchValue={searchValue}
           />
