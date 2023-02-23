@@ -13,6 +13,8 @@ export const useWindowSize = () => {
       window.removeEventListener("resize", resizeHandler);
     };
   }, []);
+  
+  const [, w] = size;
 
-  return size;
+  return w > 768;
 };
