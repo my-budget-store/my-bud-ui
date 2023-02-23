@@ -1,16 +1,13 @@
-import { useContext, useState } from "react";
 import axios from "axios";
+import { useContext, useState } from "react";
+import { getCookie } from "Services/Helpers";
+import { AuthContext } from "Store/AuthContext";
+import { AccountNavigation } from "./AccountFeatures";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
   Login as LoginIcon,
-  ShoppingCart as CartIcon,
-  AccountCircleOutlined as AccountCircleOutlinedIcon,
-  BorderColor as BorderColorIcon,
 } from "@mui/icons-material";
-import "Components/Header/Header.css";
-import { getCookie } from "Shared/Helpers";
-import { AuthContext } from "Store/AuthContext";
 
 export const FullHeader = (props: any) => {
   interface Product {
@@ -20,7 +17,7 @@ export const FullHeader = (props: any) => {
 
   const tokenStr = getCookie("token");
   const [productsData, setProductsData] = useState([]);
-  
+
   function HandleProductsMouseOver() {
     axios
       .get("https://localhost:7101/mybud/v1/products", {
@@ -72,27 +69,12 @@ export const FullHeader = (props: any) => {
           </li>
         ) : (
           <>
-            <li>
-              <a href="/orders" className="nav-link">
-                <BorderColorIcon className="icons-size" />
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="/cart" className="nav-link">
-                <CartIcon className="icons-size" />
-                Cart
-              </a>
-            </li>
-            <li>
-              <a href="/account" className="nav-link">
-                <AccountCircleOutlinedIcon className="icons-size" />
-                Onkar
-              </a>
-            </li>
+            <AccountNavigation />
           </>
         )}
       </ul>
     </header>
   );
 };
+
+

@@ -1,8 +1,8 @@
+import AuthService from "Services/AuthService";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-import AuthService from "Services/AuthService";
 import { AuthContext } from "Store/AuthContext";
-import "Components/Login/Login.css";
+import "Styles/Login.css";
 
 export const Login = () => {
   const navigate = useNavigate();

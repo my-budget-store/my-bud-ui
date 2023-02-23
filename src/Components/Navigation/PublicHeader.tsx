@@ -3,7 +3,6 @@ import {
   Menu as MenuIcon,
   Login as LoginIcon,
 } from "@mui/icons-material";
-import "Components/Header/Header.css";
 
 export const PublicHeader = () => (
   <header className="header">

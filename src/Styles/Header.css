@@ -2,6 +2,14 @@
   background-color: black;
 }
 
+.search-bar-style {
+  display: flex;
+  flex: 1;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
 .menu-account-toggle {
   display: flex;
   flex: 0.1;

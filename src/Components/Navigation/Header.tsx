@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { useWindowSize } from "Hooks/useWindowSizeHook";
+import { useWindowSize } from "Store/useWindowSizeHook";
 import { CompactHeader } from "./CompactHeader";
 import { FullHeader } from "./FullHeader";
 import { PublicHeader } from "./PublicHeader";
 import { AuthContext } from "Store/AuthContext";
+import "Styles/Header.css";
 
-export const Header = (props: any) => {
+export const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const UpdateSearchValue = (value: string) => setSearchValue(value);
   const SearchValueChangeHandler = (e: any) => {

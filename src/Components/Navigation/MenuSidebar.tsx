@@ -1,5 +1,4 @@
 import { Home as HomeIcon, Menu as MenuIcon } from "@mui/icons-material";
-import "Components/MenuSidebar/MenuSidebar.css";
 
 export const MenuSideBar = () => {
   return (

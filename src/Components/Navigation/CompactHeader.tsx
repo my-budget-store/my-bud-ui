@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { BackDrop } from "Components/UI/BackDrop";
-import { MenuSideBar } from "Components/MenuSidebar/MenuSidebar";
-import { AccountSidebar } from "Components/AccountSidebar/AccountSidebar";
+import { BackDrop } from "Components/Common/BackDrop";
+import { MenuSideBar } from "Components/Navigation/MenuSidebar";
+import { AccountSidebar } from "Components/Navigation/AccountSidebar";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import "Components/Header/Header.css";
+import "Styles/Sidebar.css";
 
 export const CompactHeader = (props: any) => {
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =

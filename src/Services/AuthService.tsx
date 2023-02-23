@@ -4,7 +4,7 @@ import {
   setCookie,
   removeCookie,
   HttpRequest,
-} from "Shared/Helpers";
+} from "Services/Helpers";
 
 const AuthService = {
   ValidateUserToken: () => {

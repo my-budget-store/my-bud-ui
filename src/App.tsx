@@ -1,4 +1,4 @@
-import { Header } from "Components/Header/Header";
+import { Header } from "Components/Navigation/Header";
 import { Account } from "Pages/Account";
 import { Orders } from "Pages/Orders";
 import { Products } from "Pages/Products";

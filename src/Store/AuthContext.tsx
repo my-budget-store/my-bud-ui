@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
 import AuthService from "Services/AuthService";
+import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext({
   isUserLoggedIn: false,
