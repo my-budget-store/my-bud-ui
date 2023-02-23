@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import AuthService from "Services/AuthService";
+import { AuthContext } from "Store/AuthContext";
+import "Components/Login/Login.css";
 
-export const Login = (props: any) => {
+export const Login = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const authContext = useContext(AuthContext);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const isSuccess = await AuthService.Login(userName, password);
-    if (isSuccess) props.onLogin();
+    if (isSuccess) authContext.onLoginHandler();
     navigate("/", { replace: true });
   };
 

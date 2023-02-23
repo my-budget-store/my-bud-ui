@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
 import { Header } from "Components/Header/Header";
-import { AppRoutes } from "./Routes/AppRoutes";
-import AuthService from "Services/AuthService";
-import "./Components/Login/Login.css";
+import { Account } from "Pages/Account";
+import { Orders } from "Pages/Orders";
+import { Products } from "Pages/Products";
+import { Routes, Route } from "react-router";
+import { Login } from "Components/Login/Login";
+import { Home } from "Pages/Home";
 
 export const App = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-
-  const LoginHandler = () => {
-    setIsUserLoggedIn(!isUserLoggedIn);
-  };
-
-  useEffect(() => {
-    const isValid = AuthService.ValidateUserToken();
-    if (isValid) setIsUserLoggedIn(true);
-  }, []);
-
   return (
     <>
-      <Header isUserLoggedIn={isUserLoggedIn} />
-      <AppRoutes LoginHandler={LoginHandler} />
+      <Header />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
     </>
   );
 };
