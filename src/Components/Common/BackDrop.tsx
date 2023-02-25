@@ -10,5 +10,5 @@ export const BackDrop = (props: any) => {
     }
   };
 
-  return <div className="back-drop-div" onClick={clickBackDropHandler} />;
+  return <div className="back-drop" onClick={clickBackDropHandler} />;
 };

@@ -8,13 +8,13 @@ export const PublicHeader = () => (
   <header className="header">
     <ul className="ul">
       <li>
-        <a href="/products" className="nav-link">
+        <a href="/Home" className="nav-link">
           <AccountCircleIcon className="icons-size" />
           MyBud
         </a>
       </li>
       <li>
-        <a href="/products" className="nav-link">
+        <a href="/Products" className="nav-link">
           <MenuIcon className="icons-size" />
           Products
         </a>

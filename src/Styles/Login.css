@@ -1,16 +1,14 @@
 .login-form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 400px;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  right: 0px;
+  display: block;
+  position: relative;
+  height: 28rem;
+  width: 30rem;
+  margin: auto;
+  top: 6rem;
+  left: 0rem;
+  border-radius: 10px;
   color: white;
   background-color: black;
+  box-shadow: 6px 6px 6px 6px rgb(0 0 0 / 20%);
+  text-align: center;
 }

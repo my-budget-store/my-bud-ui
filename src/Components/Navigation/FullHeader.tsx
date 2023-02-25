@@ -30,14 +30,14 @@ export const FullHeader = (props: any) => {
     <header className="header">
       <ul className="ul">
         <li>
-          <a href="/" className="nav-link">
+          <a href="/Home" className="nav-link">
             <AccountCircleIcon className="icons-size" />
             MyBud
           </a>
         </li>
         <li className="dropdown">
           <a
-            href="/"
+            href="/Products"
             className="nav-link"
             onMouseOver={HandleProductsMouseOver}
           >

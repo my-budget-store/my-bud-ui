@@ -4,7 +4,7 @@ export const MenuSideBar = () => {
   return (
     <ul className="common-side-menu show-side-menu">
       <li>
-        <a href="/" className="nav-link">
+        <a href="/Home" className="nav-link">
           <HomeIcon className="icons-size" />
           MyBud
         </a>
