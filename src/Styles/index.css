@@ -29,8 +29,11 @@ html {
 
 .ul {
   margin: 0rem;
+  padding: 0rem;
   display: flex;
   list-style-type: none;
+  line-height: 2rem;
+  background-color: black;
 }
 
 .card {
