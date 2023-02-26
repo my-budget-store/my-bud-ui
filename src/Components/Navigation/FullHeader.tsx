@@ -8,7 +8,6 @@ import {
   Menu as MenuIcon,
   Login as LoginIcon,
 } from "@mui/icons-material";
-
 export const FullHeader = (props: any) => {
   interface Product {
     name: string;

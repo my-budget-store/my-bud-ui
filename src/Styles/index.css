@@ -49,3 +49,21 @@ html {
   justify-content: center;
   background-color: grey;
 }
+
+.text-input {
+  height: 2.2rem;
+  width: 17rem;
+  border-radius: 8px;
+}
+
+.big-label{
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.submit-button {
+  height: 2.2rem;
+  width: 7rem;
+  border-radius: 8px;
+
+}
