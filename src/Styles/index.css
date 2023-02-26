@@ -34,6 +34,7 @@ html {
   list-style-type: none;
   line-height: 2rem;
   background-color: black;
+  align-items: center;
 }
 
 .card {

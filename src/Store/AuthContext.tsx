@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext({
   isUserLoggedIn: false,
   onLoginHandler: () => {},
-  onLogoutHandler: () => {},
+  onLogoutHandler: () => {}
 });
 
 export const AuthContextProvider = (props: any) => {

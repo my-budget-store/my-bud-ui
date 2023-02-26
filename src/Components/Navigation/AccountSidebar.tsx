@@ -1,4 +1,4 @@
-import { AccountNavigation } from "Components/Navigation/AccountFeatures";
+import { AccountNavigation } from "Components/Navigation/AccountNavigation";
 
 export const AccountSidebar = () => (
   <ul className="common-side-menu show-account-side-menu ">

@@ -2,12 +2,13 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { getCookie } from "Services/Helpers";
 import { AuthContext } from "Store/AuthContext";
-import { AccountNavigation } from "./AccountFeatures";
+import { AccountNavigation } from "./AccountNavigation";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
   Login as LoginIcon,
 } from "@mui/icons-material";
+
 export const FullHeader = (props: any) => {
   interface Product {
     name: string;
@@ -52,7 +53,7 @@ export const FullHeader = (props: any) => {
         <li>
           <input
             placeholder="Search..."
-            className="search-bar-style"
+            className="text-input"
             onChange={props.SearchValueChangeHandler}
             value={props.searchValue}
           />
