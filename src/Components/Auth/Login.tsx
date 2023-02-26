@@ -1,5 +1,5 @@
 import AuthService from "Services/AuthService";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "Store/AuthContext";
 import "Styles/Login.css";
@@ -11,10 +11,15 @@ export const Login = () => {
 
   const authContext = useContext(AuthContext);
 
+  useEffect(() => {
+    authContext.toggleLoginFlow(true);
+  }, []);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const isSuccess = await AuthService.Login(userName, password);
     if (isSuccess) authContext.onLoginHandler();
+    authContext.toggleLoginFlow(false);
     navigate("/", { replace: true });
   };
 
