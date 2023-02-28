@@ -1,18 +1,19 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { getCookie } from "Services/Helpers";
 import { AuthContext } from "Store/AuthContext";
-import { AccountNavigation } from "./AccountNavigation";
+import axios from "axios";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
   Login as LoginIcon,
+  Note as NoteIcon,
 } from "@mui/icons-material";
+import { UserEnabledFeatures } from "../Shared/UserEnabledFeatures";
 
 interface Product {
   name: string;
 }
-export const FullHeader = (props: any) => {
+export const DesktopHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
   const tokenStr = getCookie("token");
@@ -28,61 +29,61 @@ export const FullHeader = (props: any) => {
   };
 
   return (
-    <header className="header">
+    <header>
       {authContext.isLoginFlow ? (
-        <ul className="ul">
-          <li>
-            <a href="/Home" className="nav-link">
-              <AccountCircleIcon className="icons-size" />
-              MyBud
-            </a>
-          </li>
-        </ul>
+        <span>
+          <a href="/Home">
+            <AccountCircleIcon/>
+            MyBud
+          </a>
+        </span>
       ) : (
-        <ul className="ul">
-          <li>
-            <a href="/Home" className="nav-link">
-              <AccountCircleIcon className="icons-size" />
-              MyBud
+        <>
+          <span>
+            <a href="/Home">
+              <AccountCircleIcon/>
+              <label>MyBud</label>
             </a>
-          </li>
-          <li className="dropdown">
-            <a
-              href="/Products"
-              className="nav-link"
-              onMouseOver={HandleProductsMouseOver}
-            >
-              <MenuIcon className="icons-size" />
-              Products
+          </span>
+          <span className="dropdown">
+            <a href="/Products" onMouseOver={HandleProductsMouseOver}>
+              <MenuIcon/>
+              <label>Products</label>
             </a>
-            <div className="dropdown-content">
+            <span className="dropdown-content">
               {productsData.map((product: Product) => (
                 <a href="/">{product.name}</a>
               ))}
-            </div>
-          </li>
-          <li>
+            </span>
+          </span>
+          <span>
+            <a href="/Orders">
+              <NoteIcon/>
+              <label>Orders</label>
+            </a>
+          </span>
+          <span>
             <input
               placeholder="Search..."
               className="text-input"
               onChange={props.SearchValueChangeHandler}
               value={props.searchValue}
             />
-          </li>
-          <li className="spacer" />
+          </span>
+          <span className="spacer"/>
           {!authContext.isUserLoggedIn ? (
-            <li>
-              <a href="/Login" className="nav-link">
-                <LoginIcon className="icons-size" />
-                Sign In
+            <span className="header-right">
+              <a href="/Login">
+                <LoginIcon/>
+                <label>Sign In</label>
               </a>
-            </li>
+            </span>
           ) : (
             <>
-              <AccountNavigation />
+              <UserEnabledFeatures />
             </>
           )}
-        </ul>
+        </>
       )}
     </header>
   );

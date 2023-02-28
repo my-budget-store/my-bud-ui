@@ -1,41 +1,41 @@
-import "Styles/Products.css";
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
+import "Styles/products.css";
 
 export const Products = () => {
   return (
     <>
-      <div className="item-base-row">
+      <div className="filter-row">
         <span className="item-nav-path">
           {/* TODO: Dynamically update this section */}
-          <a href="/" className=" place-well page-nav-link">
-            Mobiles
+          <a href="/" className="page-nav-link">
+           <label className="large-label">Mobiles</label>
           </a>
           <span>
-            <ArrowRight className="svg-align" />
+            <ArrowRight/>
           </span>
           <a href="/" className="page-nav-link">
-            Google Pixel
+            <label className="large-label">Google Pixel</label>
           </a>
         </span>
-        <span className="horizontal-filter-span">
-          <span className="place-well">
+        <span className="horizontal-filter">
+          <span>
             Price
-            <ExpandMore className="svg-align" />
+            <ExpandMore/>
           </span>
-          <span className="place-well">
+          <span>
             Rating
-            <ExpandMore className="svg-align" />
+            <ExpandMore/>
           </span>
-          <span className="place-well">
+          <span>
             Popularity
-            <ExpandMore className="svg-align" />
+            <ExpandMore/>
           </span>
         </span>
       </div>
-      <div className="vertical-filter-span">
-        <div className="place-well">
-          Brands
-          <ul className="filter-ul">
+      <div className="vertical-filter">
+        <div>
+          <label className="large-label">Brands</label>
+          <ul>
             <li>
               <input type="checkbox" />
               Apple
@@ -58,9 +58,9 @@ export const Products = () => {
             </li>
           </ul>
         </div>
-        <div className="place-well">
-          <label>Price Range</label>
-          <ul className="filter-ul">
+        <div>
+          <label className="large-label">Price Range</label>
+          <ul>
             <li>
               <input type="checkbox" />0 - 10,000
             </li>
@@ -82,9 +82,9 @@ export const Products = () => {
             </li>
           </ul>
         </div>
-        <div className="place-well">
-          Screen Size
-          <ul className="filter-ul">
+        <div>
+          <label className="large-label">Screen Size</label>
+          <ul>
             <li>
               <input type="checkbox" />
               5-5.5 inches
@@ -99,9 +99,9 @@ export const Products = () => {
             </li>
           </ul>
         </div>
-        <div className="place-well">
-          Storage
-          <ul className="filter-ul">
+        <div>
+          <label className="large-label">Storage</label>
+          <ul>
             <li>
               <input type="checkbox" />
               64 GB

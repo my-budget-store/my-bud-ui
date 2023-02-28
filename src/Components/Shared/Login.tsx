@@ -2,7 +2,7 @@ import AuthService from "Services/AuthService";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "Store/AuthContext";
-import "Styles/Login.css";
+import "Styles/forms.css";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -27,14 +27,12 @@ export const Login = () => {
     <form onSubmit={handleSubmit} className="login-form">
       <br />
       <br />
-      <br />
-      <label className="big-label">Sign In</label>
-      <br />
+      <h1>Sign In</h1>
       <br />
       <br />
       <input
         type="text"
-        className="text-input place-well"
+        className="text-input"
         placeholder="Email/Phone Number"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
@@ -43,14 +41,14 @@ export const Login = () => {
       <br />
       <input
         type="text"
-        className="text-input place-well"
+        className="text-input"
         value={password}
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
       <br />
-      <input type="submit" className="submit-button place-well" />
+      <input type="submit"/>
     </form>
   );
 };

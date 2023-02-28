@@ -4,14 +4,14 @@ export const MenuSideBar = () => {
   return (
     <ul className="common-side-menu show-side-menu">
       <li>
-        <a href="/Home" className="nav-link">
-          <HomeIcon className="icons-size" />
+        <a href="/Home">
+          <HomeIcon/>
           MyBud
         </a>
       </li>
       <li>
-        <a href="/categories" className="nav-link">
-          <MenuIcon className="icons-size" />
+        <a href="/categories">
+          <MenuIcon/>
           Categories
         </a>
       </li>

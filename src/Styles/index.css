@@ -1,54 +1,47 @@
 html {
   height: 100%;
+}
+
+body {
+  margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  clear: both;
+  height: 100%;
 }
 
-.body {
-  margin: 0rem;
+#root {
+  height: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-.spacer {
-  display: flex;
-  flex: 1;
+.content {
+  height: 100%;
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
-.icons-size {
-  padding-right: 0.2rem;
-  font-size: 1.5rem;
-}
-
-.nav-link {
-  color: white;
-  font-size: 1rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-}
-
-.ul {
-  margin: 0rem;
-  padding: 0rem;
-  display: flex;
+ul {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
-  line-height: 2rem;
-  background-color: black;
-  align-items: center;
 }
 
-.card {
-  display: flex;
-  height: 17rem;
-  width: 16rem;
-  border-radius: 0.3rem;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  box-sizing: content-box;
-  margin: 0.3rem;
+li {
+  padding: 0.6rem;
+}
+
+label {
+  vertical-align: middle;
   padding: 0.3rem;
-  align-items: center;
-  justify-content: center;
-  background-color: grey;
+}
+
+svg {
+  vertical-align: middle;
 }
 
 .text-input {
@@ -57,14 +50,76 @@ html {
   border-radius: 8px;
 }
 
-.big-label{
-  font-size: xx-large;
+.large-label {
+  font-size: large;
   font-weight: bold;
 }
 
-.submit-button {
+input[type="submit"] {
   height: 2.2rem;
   width: 7rem;
   border-radius: 8px;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2b2828;
+  min-width: 160px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover {
+  color: rgb(122, 115, 115);
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #726868;
+}
+
+.filter-row {
+  display: inline-block;
+  line-height: 3rem;
+  width: 100%;
+}
+
+.horizontal-filter {
+  margin: 0.3rem 0 0.3rem 0;
+  padding: 0.3rem 0 0.3rem 0;
+  float: right;
+}
+
+.vertical-filter {
+  float: left;
+  width: 14rem;
+}
+
+.order-details {
+  margin: 0.3rem;
+  padding: 0.3rem;
+  display: inline-block;
+}
+
+.order-list {
+  margin-bottom: 1.3rem;
+  border-radius: 10px;
+  width: -webkit-fill-available;
+  box-shadow: 0px 8px 8px 6px rgb(0 0 0 / 15%);
+}
+
+.float-right {
+  right: 0;
 }

@@ -1,4 +1,4 @@
-import { AuthApi } from "Constants/ApiConstants";
+import { AuthApi } from "Services/Constants/ApiConstants";
 import {
   getCookie,
   setCookie,
