@@ -33,7 +33,7 @@ export const DesktopHeader = (props: any) => {
       {authContext.isLoginFlow ? (
         <span>
           <a href="/Home">
-            <AccountCircleIcon/>
+            <AccountCircleIcon />
             MyBud
           </a>
         </span>
@@ -41,25 +41,28 @@ export const DesktopHeader = (props: any) => {
         <>
           <span>
             <a href="/Home">
-              <AccountCircleIcon/>
-              <label>MyBud</label>
+              <AccountCircleIcon />
+              MyBud
             </a>
           </span>
           <span className="dropdown">
             <a href="/Products" onMouseOver={HandleProductsMouseOver}>
-              <MenuIcon/>
-              <label>Products</label>
+              <MenuIcon />
+              Products
             </a>
-            <span className="dropdown-content">
-              {productsData.map((product: Product) => (
-                <a href="/">{product.name}</a>
-              ))}
-            </span>
+            <div className="dropdown-container">
+              <div className="dropdown-spacer" />
+              <div className="dropdown-content">
+                {productsData.map((product: Product) => (
+                  <a href="/">{product.name}</a>
+                ))}
+              </div>
+            </div>
           </span>
           <span>
             <a href="/Orders">
-              <NoteIcon/>
-              <label>Orders</label>
+              <NoteIcon />
+              Orders
             </a>
           </span>
           <span>
@@ -70,12 +73,12 @@ export const DesktopHeader = (props: any) => {
               value={props.searchValue}
             />
           </span>
-          <span className="spacer"/>
+          <span className="spacer" />
           {!authContext.isUserLoggedIn ? (
             <span className="header-right">
               <a href="/Login">
-                <LoginIcon/>
-                <label>Sign In</label>
+                <LoginIcon />
+                Sign In
               </a>
             </span>
           ) : (

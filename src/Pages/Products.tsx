@@ -5,35 +5,34 @@ export const Products = () => {
   return (
     <>
       <div className="filter-row">
-        <span className="item-nav-path">
-          {/* TODO: Dynamically update this section */}
-          <a href="/" className="page-nav-link">
-           <label className="large-label">Mobiles</label>
+        {/* TODO: Dynamically update this section */}
+        <span className="product-category">
+          <a href="/" className="page-nav-link large-label">
+            Mobiles
           </a>
-          <span>
-            <ArrowRight/>
-          </span>
-          <a href="/" className="page-nav-link">
-            <label className="large-label">Google Pixel</label>
+          <ArrowRight />
+          <a href="/" className="page-nav-link large-label">
+            Google Pixel
           </a>
         </span>
+        <span className="spacer" />
         <span className="horizontal-filter">
           <span>
             Price
-            <ExpandMore/>
+            <ExpandMore />
           </span>
           <span>
             Rating
-            <ExpandMore/>
+            <ExpandMore />
           </span>
           <span>
             Popularity
-            <ExpandMore/>
+            <ExpandMore />
           </span>
         </span>
       </div>
-      <div className="vertical-filter">
-        <div>
+      <div className="container">
+        <span className="vertical-filter">
           <label className="large-label">Brands</label>
           <ul>
             <li>
@@ -57,8 +56,6 @@ export const Products = () => {
               MI
             </li>
           </ul>
-        </div>
-        <div>
           <label className="large-label">Price Range</label>
           <ul>
             <li>
@@ -81,8 +78,6 @@ export const Products = () => {
               25,000 or more
             </li>
           </ul>
-        </div>
-        <div>
           <label className="large-label">Screen Size</label>
           <ul>
             <li>
@@ -98,8 +93,6 @@ export const Products = () => {
               6+ inches
             </li>
           </ul>
-        </div>
-        <div>
           <label className="large-label">Storage</label>
           <ul>
             <li>
@@ -115,17 +108,17 @@ export const Products = () => {
               256 GB
             </li>
           </ul>
-        </div>
-      </div>
-      <div className="card-container">
-        <div className="card">Pixel 4a</div>
-        <div className="card">Pixel 4a 5G</div>
-        <div className="card">Pixel 5a</div>
-        <div className="card">Pixel 5</div>
-        <div className="card">Pixel 6a</div>
-        <div className="card">Pixel 6</div>
-        <div className="card">Pixel 7a</div>
-        <div className="card">Pixel 7</div>
+        </span>
+        <span className="card-container">
+          <span className="card">Pixel 4a</span>
+          <span className="card">Pixel 4a 5G</span>
+          <span className="card">Pixel 5a</span>
+          <span className="card">Pixel 5</span>
+          <span className="card">Pixel 6a</span>
+          <span className="card">Pixel 6</span>
+          <span className="card">Pixel 7a</span>
+          <span className="card">Pixel 7</span>
+        </span>
       </div>
     </>
   );

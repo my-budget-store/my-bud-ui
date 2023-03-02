@@ -2,19 +2,19 @@ import { Home as HomeIcon, Menu as MenuIcon } from "@mui/icons-material";
 
 export const MenuSideBar = () => {
   return (
-    <ul className="common-side-menu show-side-menu">
-      <li>
+    <header className="common-side-menu show-side-menu">
+      <span>
         <a href="/Home">
           <HomeIcon/>
           MyBud
         </a>
-      </li>
-      <li>
+      </span>
+      <span>
         <a href="/categories">
           <MenuIcon/>
           Categories
         </a>
-      </li>
-    </ul>
+      </span>
+    </header>
   );
 };

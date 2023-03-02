@@ -3,7 +3,7 @@ import naf1 from "assets/naf1.jpg";
 import naf2 from "assets/naf2.jpg";
 import "Styles/orders.css";
 
-export const Orders = () => {
+export const Cart = () => {
   return (
     <>
       <h1> Your Orders</h1>

@@ -12,34 +12,45 @@ export const UserEnabledFeatures = () => {
   const authContext = useContext(AuthContext);
   const isDesktopMode = useWindowSize();
 
-  const LogoutLabel = (
-    <label onClick={authContext.onLogoutHandler}>
-      <LogoutIcon/>
+  const LogoutSpan = (
+    <span onClick={authContext.onLogoutHandler}>
+      <LogoutIcon />
       Logout
-    </label>
+    </span>
   );
+
+  const LogoutInDropDown = (
+    <div
+      className="dropdown-container right"
+      onClick={authContext.onLogoutHandler}
+    >
+      <div className="dropdown-spacer" />
+      <div className="dropdown-content">{LogoutSpan}</div>
+    </div>
+  );
+
   return (
     <>
-      <span className={`${isDesktopMode && "dropdown"}`}>
-        <a href="/account">
-          <AccountCircleOutlinedIcon/>
-          <label>Account</label>
+      {!isDesktopMode && LogoutSpan}
+      <span>
+        <a href="/wishlist">
+          <FavIcon />
+          Wishlist
         </a>
-        <span className="dropdown-content">{LogoutLabel}</span>
       </span>
       <span>
         <a href="/cart">
-          <CartIcon/>
-          <label>Cart</label>
+          <CartIcon />
+          Cart
         </a>
       </span>
-      <span>
-        <a href="/wishlist">
-          <FavIcon/>
-          <label>Wishlist</label>
+      <span className={`${isDesktopMode && "dropdown"}`}>
+        <a href="/account">
+          <AccountCircleOutlinedIcon />
+          Account
         </a>
+        {LogoutInDropDown}
       </span>
-      {!isDesktopMode && LogoutLabel}
     </>
   );
 };

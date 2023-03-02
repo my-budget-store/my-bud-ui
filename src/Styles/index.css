@@ -14,6 +14,7 @@ body {
 #root {
   height: 100%;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -25,22 +26,36 @@ code {
   padding: 0 0.5rem 0 0.5rem;
 }
 
+header span,
+.content div span {
+  margin: 0.25rem;
+  padding: 0.25rem;
+}
+
+header span a,
+ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
 ul {
-  margin: 0;
+  margin: 0.3rem 0 0.3rem 0;
   padding: 0;
   list-style-type: none;
 }
 
 li {
-  padding: 0.6rem;
-}
-
-label {
-  vertical-align: middle;
-  padding: 0.3rem;
+  padding: 0.2rem;
 }
 
 svg {
+  padding: 0.2rem;
   vertical-align: middle;
 }
 
@@ -61,65 +76,56 @@ input[type="submit"] {
   border-radius: 8px;
 }
 
-.dropdown-content {
+.dropdown {
+  margin: 0;
+  padding: 0.6rem;
+}
+.dropdown:hover {
+  color: rgb(91, 91, 91);
+}
+.dropdown-container {
   display: none;
-  position: absolute;
-  background-color: #2b2828;
-  min-width: 160px;
+  position: fixed;
+  z-index: 4;
+  padding: 0.8rem 0 0 0;
+  margin: 0;
+}
+.dropdown-content {
+  color: white;
+  background-color: black;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 3;
 }
-
-.dropdown:hover .dropdown-content {
+.dropdown-spacer {
+  height: 2px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.dropdown:hover .dropdown-container {
   display: block;
 }
-
-.dropdown:hover {
-  color: rgb(122, 115, 115);
-}
-
-.dropdown-content a {
-  color: rgb(255, 255, 255);
+.dropdown-container a {
   padding: 8px 10px;
-  text-decoration: none;
-  display: block;
 }
-
-.dropdown-content a:hover {
+.dropdown-content span {
+  display: flex;
+  margin: 0;
+}
+.dropdown-content a:hover,
+.dropdown-content span:hover {
   background-color: #726868;
+}
+.right {
+  right: 0.3rem;
 }
 
 .filter-row {
-  display: inline-block;
+  display: flex;
   line-height: 3rem;
-  width: 100%;
 }
 
-.horizontal-filter {
-  margin: 0.3rem 0 0.3rem 0;
-  padding: 0.3rem 0 0.3rem 0;
-  float: right;
-}
-
+.product-category,
 .vertical-filter {
-  float: left;
-  width: 14rem;
-}
-
-.order-details {
-  margin: 0.3rem;
-  padding: 0.3rem;
-  display: inline-block;
-}
-
-.order-list {
-  margin-bottom: 1.3rem;
-  border-radius: 10px;
-  width: -webkit-fill-available;
-  box-shadow: 0px 8px 8px 6px rgb(0 0 0 / 15%);
-}
-
-.float-right {
-  right: 0;
+  min-width: 14rem;
 }

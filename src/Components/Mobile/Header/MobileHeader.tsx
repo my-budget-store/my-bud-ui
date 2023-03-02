@@ -40,25 +40,25 @@ export const MobileHeader = (props: any) => {
   }
   return (
     <>
-      <div className="compactheader">
-        <div className="menu-account-toggle">
+      <header>
+        <span className="menu-account-toggle">
           <MenuIcon onClick={() => ToggleMenuSideDrawer(true)} />
-        </div>
-        <a href="/">
-          MyBud
-        </a>
-        <div className="spacer" />
-        <div className="menu-account-toggle">
+          <a href="/">
+            MyBud
+          </a>
+        </span>
+        <span className="spacer" />
+        <span className="menu-account-toggle">
           <AccountCircleIcon onClick={() => ToggleAccountSideDrawer(true)} />
-        </div>
-      </div>
-      <div className="compactheader">
+        </span>
+      </header>
+      <header>
         <input
           className="search-bar-style"
           onChange={props.SearchValueChangeHandler}
           value={props.searchValue}
         />
-      </div>
+      </header>
     </>
   );
 };

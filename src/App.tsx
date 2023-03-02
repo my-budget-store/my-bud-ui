@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useWindowSize } from "Store/useWindowSizeHook";
 import { DesktopHeader } from "Components/Desktop/DesktopHeader";
 import { MobileHeader } from "Components/Mobile/Header/MobileHeader";
+import { Wishlist } from "Pages/Wishlist";
 
 export const App = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -35,9 +36,10 @@ export const App = () => {
       <div className="content">
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/orders" element={<Orders />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/Wishlist" element={<Wishlist />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
       </div>
