@@ -16,6 +16,7 @@ export const AuthContextProvider = (props: any) => {
   const toggleLoginFlow = (bool: boolean) => {
     setLoginFlow(bool);
   };
+
   const onLoginHandler = () => {
     setIsUserLoggedIn(true);
   };
@@ -27,7 +28,6 @@ export const AuthContextProvider = (props: any) => {
 
   useEffect(() => {
     if (AuthService.ValidateUserToken()) setIsUserLoggedIn(true);
-    
   }, []);
 
   return (

@@ -9,11 +9,11 @@
 
 .menu-account-toggle {
   display: flex;
-  color: white;
+  color: var(--header-font-color);
 }
 
 header {
   display: flex;
-  background: black;
+  background: var(--header-color);
   align-items: center;
 }

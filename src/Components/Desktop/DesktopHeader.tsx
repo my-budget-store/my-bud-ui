@@ -1,31 +1,32 @@
 import { useContext, useState } from "react";
-import { getCookie } from "Services/Helpers";
 import { AuthContext } from "Store/AuthContext";
-import axios from "axios";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
   Login as LoginIcon,
-  Note as NoteIcon,
 } from "@mui/icons-material";
 import { UserEnabledFeatures } from "../Shared/UserEnabledFeatures";
+import ProductsService from "Services/ProductsService";
 
 interface Product {
+  productId: string;
+  userId: string;
   name: string;
+  category: string;
+  price: number;
+  salePrice: number;
+  image: string;
+  imageUrl: string;
+  quantity: number;
 }
+
 export const DesktopHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
-  const tokenStr = getCookie("token");
   const [productsData, setProductsData] = useState([]);
-  const HandleProductsMouseOver = () => {
-    axios
-      .get("https://localhost:7101/mybud/v1/products", {
-        headers: { Authorization: `Bearer ${tokenStr}` },
-      })
-      .then((response) => {
-        setProductsData(response.data);
-      });
+  const HandleProductsMouseOver = async () => {
+    const response = await ProductsService.GetProducts();
+    setProductsData(response);
   };
 
   return (
@@ -54,16 +55,10 @@ export const DesktopHeader = (props: any) => {
               <div className="dropdown-spacer" />
               <div className="dropdown-content">
                 {productsData.map((product: Product) => (
-                  <a href="/">{product.name}</a>
+                  <a href="/" key={product.productId}>{product.name}</a>
                 ))}
               </div>
             </div>
-          </span>
-          <span>
-            <a href="/Orders">
-              <NoteIcon />
-              Orders
-            </a>
           </span>
           <span>
             <input
@@ -75,7 +70,7 @@ export const DesktopHeader = (props: any) => {
           </span>
           <span className="spacer" />
           {!authContext.isUserLoggedIn ? (
-            <span className="header-right">
+            <span>
               <a href="/Login">
                 <LoginIcon />
                 Sign In

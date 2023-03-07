@@ -10,9 +10,9 @@ export const MenuSideBar = () => {
         </a>
       </span>
       <span>
-        <a href="/categories">
+        <a href="/Products">
           <MenuIcon/>
-          Categories
+          Products
         </a>
       </span>
     </header>

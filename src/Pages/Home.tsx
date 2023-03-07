@@ -10,16 +10,10 @@ export const Home = () => {
         <span className="card">Pixel 5</span>
         <span className="card">Pixel 6a</span>
         <span className="card">Pixel 6</span>
+        <span className="card">Pixel 6pro</span>
         <span className="card">Pixel 7a</span>
         <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7</span>
+        <span className="card">Pixel 7pro</span>
       </div>
     </>
   );
