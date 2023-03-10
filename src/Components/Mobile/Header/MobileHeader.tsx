@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { BackDrop } from "Components/Common/BackDrop";
-import { MenuSideBar } from "Components/Navigation/MenuSidebar";
-import { AccountSidebar } from "Components/Navigation/AccountSidebar";
+import { BackDrop } from "Components/Shared/BackDrop";
+import { MenuSideBar } from "Components/Mobile/Sidebar/MenuSidebar";
+import { AccountSidebar } from "Components/Mobile/Sidebar/AccountSidebar";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import "Styles/Sidebar.css";
+import "Styles/side-bars.css";
+import "Styles/header.css";
 
-export const CompactHeader = (props: any) => {
+export const MobileHeader = (props: any) => {
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
 
@@ -39,25 +40,25 @@ export const CompactHeader = (props: any) => {
   }
   return (
     <>
-      <div className="compactheader">
-        <div className="menu-account-toggle">
+      <header>
+        <span className="menu-account-toggle">
           <MenuIcon onClick={() => ToggleMenuSideDrawer(true)} />
-        </div>
-        <a href="/" className="nav-link">
-          MyBud
-        </a>
-        <div className="spacer" />
-        <div className="menu-account-toggle">
+          <a href="/">
+            MyBud
+          </a>
+        </span>
+        <span className="spacer" />
+        <span className="menu-account-toggle">
           <AccountCircleIcon onClick={() => ToggleAccountSideDrawer(true)} />
-        </div>
-      </div>
-      <div className="compactheader">
+        </span>
+      </header>
+      <header>
         <input
           className="search-bar-style"
           onChange={props.SearchValueChangeHandler}
           value={props.searchValue}
         />
-      </div>
+      </header>
     </>
   );
 };

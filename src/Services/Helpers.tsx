@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import axios from "axios";
+// const axios = require("axios");
 
 export const setCookie = (name: string, value: string) => {
   Cookies.set(name, value);
@@ -15,7 +16,16 @@ export const removeCookie = (name: string) => {
 
 export const HttpRequest = (path: string) => {
   return {
-    fetch: () => axios.get(path),
+    fetchPublic: () => axios.get(path),
+    fetch: () => {
+      // let reqInstance = axios.create({
+      //   headers: {
+      //     Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      //   },
+      // });
+      axios.defaults.headers.get["Authorization"] = `Bearer ${getCookie("token")}`;
+      return axios.get(path);
+    },
     fetchById: (id: any) => axios.get(path + id),
     post: (newRecord: any) => axios.post(path, newRecord),
     postWithParams: (params: any) => axios.post(path, null, params),
