@@ -1,5 +1,6 @@
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "Styles/products.css";
+import pixel4a from "assets/pixel_4a.jpg";
 
 export const Products = () => {
   return (
@@ -110,7 +111,10 @@ export const Products = () => {
           </ul>
         </span>
         <span className="card-container">
-          <span className="card">Pixel 4a</span>
+          <span className="card">
+            <img src={pixel4a} alt="" />
+            Pixel 4a
+          </span>
           <span className="card">Pixel 4a 5G</span>
           <span className="card">Pixel 5a</span>
           <span className="card">Pixel 5</span>
