@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "Store/AuthContext";
+import { useSelector, useDispatch } from "react-redux";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
@@ -7,6 +8,8 @@ import {
 } from "@mui/icons-material";
 import { UserEnabledFeatures } from "../Shared/UserEnabledFeatures";
 import ProductsService from "Services/ProductsService";
+import { RootState } from "Store/Store";
+import { storeSearchValue } from "Store/Slices/searchValueSlice";
 
 interface Product {
   productId: string;
@@ -20,8 +23,12 @@ interface Product {
   quantity: number;
 }
 
-export const DesktopHeader = (props: any) => {
+export const DesktopHeader = () => {
   const authContext = useContext(AuthContext);
+
+  const dispatch = useDispatch();
+  const storedSearchValue = useSelector((state: RootState) => state).searchValue
+    .value;
 
   const [productsData, setProductsData] = useState([]);
   const HandleProductsMouseOver = async () => {
@@ -55,7 +62,9 @@ export const DesktopHeader = (props: any) => {
               <div className="dropdown-spacer" />
               <div className="dropdown-content">
                 {productsData.map((product: Product) => (
-                  <a href="/" key={product.productId}>{product.name}</a>
+                  <a href="/" key={product.productId}>
+                    {product.name}
+                  </a>
                 ))}
               </div>
             </div>
@@ -64,8 +73,8 @@ export const DesktopHeader = (props: any) => {
             <input
               placeholder="Search..."
               className="text-input"
-              onChange={props.SearchValueChangeHandler}
-              value={props.searchValue}
+              onChange={(e) => dispatch(storeSearchValue(e.target.value))}
+              value={storedSearchValue}
             />
           </span>
           <span className="spacer" />

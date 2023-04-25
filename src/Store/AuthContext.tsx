@@ -28,6 +28,7 @@ export const AuthContextProvider = (props: any) => {
 
   useEffect(() => {
     if (AuthService.ValidateUserToken()) setIsUserLoggedIn(true);
+    return () => {};
   }, []);
 
   return (

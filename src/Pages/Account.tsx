@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { ThemeContext } from "Store/ThemeContext";
 import "Styles/account.css";
 
-export const Account = (props: any) => {
+export const Account = () => {
+  const themeContext = useContext(ThemeContext);
   return (
     <>
       <h1>Account Settings</h1>
@@ -11,8 +14,7 @@ export const Account = (props: any) => {
           <div>
             <span>Theme</span>
             <span>
-              <select onChange={props.ThemeIconHandler}>
-                <option value=""></option>
+              <select onChange={themeContext.themeIconHandler}>
                 <option value="Black">Black</option>
                 <option value="Brown">Brown</option>
               </select>
