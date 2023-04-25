@@ -20,6 +20,6 @@
   width: 200px;
   z-index: 3;
   color: var(--header-font-color);
-  background-color: var(--header-color);
+  background-color: var(--header-bg-color);
   top: 0;
 }

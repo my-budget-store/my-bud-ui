@@ -14,8 +14,10 @@ import { Cart } from "Pages/Cart";
 import { Logout } from "Components/Shared/Logout";
 
 export const App = () => {
+
   const [searchValue, setSearchValue] = useState("");
   const UpdateSearchValue = (value: string) => setSearchValue(value);
+
   const SearchValueChangeHandler = (e: any) => {
     const value = e.target.value.toLowerCase();
     UpdateSearchValue(value);
