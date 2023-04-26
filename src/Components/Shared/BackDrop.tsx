@@ -1,4 +1,4 @@
-import "Styles/backdrop.css";
+import "Styles/backDrop.css";
 
 export const BackDrop = (props: any) => {
   const clickBackDropHandler = () => {

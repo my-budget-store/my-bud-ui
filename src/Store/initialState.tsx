@@ -10,11 +10,10 @@
 //       break;
 //   }
 // };
+
 export {};
 
-
 //in function component
-
 
   // const [state, dispatch] = useReducer(SearchValueReducer, initialState);
   // const SearchValueChangeHandler = (e: any) => {

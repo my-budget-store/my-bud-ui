@@ -1,25 +1,25 @@
 :root {
-  --header-color: black;
+  --header-bg-color: black;
   --header-font-color: white;
-  --font-color: black;
-  --bg-color: white;
+  --font-color: white;
+  --bg-color: #333333;
   --hover-color: #333333;
-  --content-bg-color: white;
+  --content-bg-color: black;
 }
 
 [theme="brown"] {
-  --header-color: #3d1d04;
+  --header-bg-color: #3d1d04;
   --header-font-color: white;
   --font-color: white;
   --bg-color: rgb(150, 103, 53);
-  --hover-color: black;
-  --content-bg-color: white;
+  --hover-color: rgb(150, 103, 53);
+  --content-bg-color: #3d1d04;
 }
 
 [theme="black"] {
-  --header-color: black;
+  --header-bg-color: black;
   --header-font-color: white;
-  --font-color: rgb(255, 255, 255);
+  --font-color: white;
   --bg-color: #333333;
   --hover-color: #333333;
   --content-bg-color: black;
@@ -27,6 +27,7 @@
 
 html {
   height: 100%;
+  min-width: 600px;
 }
 
 body {
@@ -58,6 +59,7 @@ header span,
 .content div span {
   margin: 0.25rem;
   padding: 0.25rem;
+  border-radius: 0.3rem;
 }
 
 header span a,
@@ -104,13 +106,7 @@ input[type="submit"] {
   border-radius: 8px;
 }
 
-.dropdown {
-  margin: 0;
-  padding: 0.6rem;
-}
-.dropdown:hover {
-  color: var(--hover-color);
-}
+/* header dropdowns */
 .dropdown-container {
   display: none;
   position: fixed;
@@ -120,7 +116,7 @@ input[type="submit"] {
 }
 .dropdown-content {
   color: var(--header-font-color);
-  background-color: var(--header-color);
+  background-color: var(--header-bg-color);
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
@@ -147,13 +143,37 @@ input[type="submit"] {
 .right {
   right: 0.3rem;
 }
+/* filter dropdown container */
+.horizontal-filter{
+  display: flex;
+}
+.popularity-dropdown:hover{
+  background-color: var(--header-bg-color);
+}
+.popularity-dropdown-container{
+  display: none;
+  background-color: var(--header-bg-color);
+  position: fixed;
+  z-index: 4;
+  padding: 0.5rem 0.3rem 0.3rem 0.3rem;
+  right: 1.75rem;
+  width: 6.4rem;
+  border-radius: 0.5rem;
+}
+
+.popularity-dropdown:hover .popularity-dropdown-container {
+  display: flex;
+}
 
 .filter-row {
   display: flex;
   line-height: 3rem;
 }
 
-.product-category,
-.vertical-filter {
+.product-category{
   min-width: 14rem;
+}
+
+.vertical-filter {
+  min-width: 11rem;
 }

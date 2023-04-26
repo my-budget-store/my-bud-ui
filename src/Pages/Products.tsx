@@ -1,5 +1,6 @@
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "Styles/products.css";
+import "Styles/index.css";
 import pixel4a from "assets/pixel_4a.jpg";
 
 export const Products = () => {
@@ -26,9 +27,12 @@ export const Products = () => {
             Rating
             <ExpandMore />
           </span>
-          <span>
+          <span className="popularity-dropdown">
             Popularity
             <ExpandMore />
+            <div className="popularity-dropdown-container right">
+              <div>Low to High</div>
+            </div>
           </span>
         </span>
       </div>
@@ -111,6 +115,22 @@ export const Products = () => {
           </ul>
         </span>
         <span className="card-container">
+          <span className="card">
+            <img src={pixel4a} alt="" />
+            Pixel 4a
+          </span>
+          <span className="card">
+            <img src={pixel4a} alt="" />
+            Pixel 4a
+          </span>
+          <span className="card">
+            <img src={pixel4a} alt="" />
+            Pixel 4a
+          </span>
+          <span className="card">
+            <img src={pixel4a} alt="" />
+            Pixel 4a
+          </span>
           <span className="card">
             <img src={pixel4a} alt="" />
             Pixel 4a

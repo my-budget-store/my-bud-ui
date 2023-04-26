@@ -8,8 +8,16 @@ import {
 } from "@mui/icons-material";
 import "Styles/side-bars.css";
 import "Styles/header.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "Store/Store";
+import { storeSearchValue } from "Store/Slices/searchValueSlice";
 
-export const MobileHeader = (props: any) => {
+export const MobileHeader = () => {
+  const dispatch = useDispatch();
+  const searchValue = useSelector(
+    (state: RootState) => state.searchValue.value
+  );
+
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
 
@@ -43,9 +51,7 @@ export const MobileHeader = (props: any) => {
       <header>
         <span className="menu-account-toggle">
           <MenuIcon onClick={() => ToggleMenuSideDrawer(true)} />
-          <a href="/">
-            MyBud
-          </a>
+          <a href="/">MyBud</a>
         </span>
         <span className="spacer" />
         <span className="menu-account-toggle">
@@ -54,9 +60,10 @@ export const MobileHeader = (props: any) => {
       </header>
       <header>
         <input
+          placeholder="Search..."
           className="search-bar-style"
-          onChange={props.SearchValueChangeHandler}
-          value={props.searchValue}
+          onChange={(e) => dispatch(storeSearchValue(e.target.value))}
+          value={searchValue}
         />
       </header>
     </>
