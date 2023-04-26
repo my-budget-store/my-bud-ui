@@ -14,8 +14,9 @@ import { storeSearchValue } from "Store/Slices/searchValueSlice";
 
 export const MobileHeader = () => {
   const dispatch = useDispatch();
-  const storedSearchValue = useSelector((state: RootState) => state).searchValue
-    .value;
+  const searchValue = useSelector(
+    (state: RootState) => state.searchValue.value
+  );
 
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
@@ -62,7 +63,7 @@ export const MobileHeader = () => {
           placeholder="Search..."
           className="search-bar-style"
           onChange={(e) => dispatch(storeSearchValue(e.target.value))}
-          value={storedSearchValue}
+          value={searchValue}
         />
       </header>
     </>

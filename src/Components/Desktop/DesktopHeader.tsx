@@ -27,10 +27,12 @@ export const DesktopHeader = () => {
   const authContext = useContext(AuthContext);
 
   const dispatch = useDispatch();
-  const storedSearchValue = useSelector((state: RootState) => state).searchValue
-    .value;
+  const searchValue = useSelector(
+    (state: RootState) => state.searchValue.value
+  );
 
   const [productsData, setProductsData] = useState([]);
+
   const HandleProductsMouseOver = async () => {
     const response = await ProductsService.GetProducts();
     setProductsData(response);
@@ -74,7 +76,7 @@ export const DesktopHeader = () => {
               placeholder="Search..."
               className="text-input"
               onChange={(e) => dispatch(storeSearchValue(e.target.value))}
-              value={storedSearchValue}
+              value={searchValue}
             />
           </span>
           <span className="spacer" />
