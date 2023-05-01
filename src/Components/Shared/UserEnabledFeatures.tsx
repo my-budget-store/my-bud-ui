@@ -13,10 +13,6 @@ export const UserEnabledFeatures = () => {
   const isDesktopMode = useWindowSize();
 
   const LogoutLink = (
-    // <span onClick={authContext.onLogoutHandler}>
-    //   <LogoutIcon />
-    //   Logout
-    // </span>
     <span>
       <a href="/Logout">
         <LogoutIcon />
@@ -28,7 +24,6 @@ export const UserEnabledFeatures = () => {
   const LogoutInDropDown = (
     <div
       className="dropdown-container right"
-      // onClick={authContext.onLogoutHandler}
     >
       <div className="dropdown-spacer" />
       <div className="dropdown-content">{LogoutLink}</div>
