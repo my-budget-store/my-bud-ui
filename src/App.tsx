@@ -10,14 +10,36 @@ import { Cart } from "Pages/Cart";
 import { Account } from "Pages/Account";
 import { Login } from "Components/Shared/Login";
 import { Logout } from "Components/Shared/Logout";
+import { useState } from "react";
 
-// export const App = () => {
-export function App() {
+export const App = () => {
+  // Props drilling pattern
+  // const [searchValue, setSearchValue] = useState("");
+  // const UpdateSearchValue = (value: string) => setSearchValue(value);
+
+  // const SearchValueChangeHandler = (e: any) => {
+  //   const value = e.target.value.toLowerCase();
+  //   UpdateSearchValue(value);
+  // };
   const isDesktopMode = useWindowSize();
 
   return (
     <>
       {isDesktopMode ? <DesktopHeader /> : <MobileHeader />}
+      
+
+      {/* Props drilling pattern       
+      {isDesktopMode ? (
+        <DesktopHeader
+          SearchValueChangeHandler={SearchValueChangeHandler}
+          searchValue={searchValue}
+        />
+      ) : (
+        <MobileHeader
+          SearchValueChangeHandler={SearchValueChangeHandler}
+          searchValue={searchValue}
+        />
+      )} */}
       <div className="content">
         <Routes>
           <Route path="/home" element={<Home />} />

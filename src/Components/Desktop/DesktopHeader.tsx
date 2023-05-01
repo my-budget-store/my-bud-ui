@@ -29,7 +29,7 @@ interface Product {
   quantity: number;
 }
 
-export const DesktopHeader = () => {
+export const DesktopHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
   // Custom Hook pattern
@@ -103,6 +103,8 @@ export const DesktopHeader = () => {
             <input
               placeholder="Search..."
               className="text-input"
+              // onChange={props.SearchValueChangeHandler}
+              // value={props.searchValue}
               onChange={HandleSearchInput}
               value={searchValue}
             />

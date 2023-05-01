@@ -16,7 +16,7 @@ import { SearchContext } from "Store/ContextProviders/SearchContext";
 import { AuthContext } from "Store/ContextProviders/AuthContext";
 import { useStore } from "Store/CustomStore/Store";
 
-export const MobileHeader = () => {
+export const MobileHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
   // Custom Hook pattern
@@ -90,6 +90,8 @@ export const MobileHeader = () => {
         <input
           placeholder="Search..."
           className="search-bar-style"
+          // onChange={props.SearchValueChangeHandler}
+          // value={props.searchValue}
           onChange={HandleSearchInput}
           value={searchValue}
         />
