@@ -10,12 +10,6 @@ import { UserEnabledFeatures } from "../Shared/UserEnabledFeatures";
 import ProductsService from "Services/ProductsService";
 import { RootState } from "Store/RTKStore/Store";
 import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
-import {
-  SearchActionKind,
-  SearchValue,
-} from "Store/CustomStore/SearchValueStore";
-import { SearchContext } from "Store/ContextProviders/SearchContext";
-import { useStore } from "Store/CustomStore/Store";
 
 interface Product {
   productId: string;
@@ -32,31 +26,13 @@ interface Product {
 export const DesktopHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
-  // Custom Hook pattern
-  const dispatch = useStore(false)[1];
-  const state = useStore()[0];
-  const [searchValue, setSearchValue] = useState(state.searchValue);
-
-  // RTK pattern
-  // const dispatch = useDispatch();
-  // const searchValue = useSelector(
-  //   (state: RootState) => state.searchValue.value
-  // );
-
-  // Context Api pattern
-  // const searchContext = useContext(SearchContext);
-  // const searchValue = searchContext.searchValue;
+  const dispatch = useDispatch();
+  const searchValue = useSelector(
+    (state: RootState) => state.searchValue.value
+  );
 
   const HandleSearchInput = (e: any) => {
-    // Custom Hook pattern
-    setSearchValue(e.target.value);
-    dispatch(SearchActionKind.SetSearchValue, e.target.value);
-
-    // RTK pattern
-    // dispatch(storeSearchValue(e.target.value));
-
-    // Context Api pattern
-    // searchContext.onChangeSearchInput(e);
+    dispatch(storeSearchValue(e.target.value));
   };
 
   const [productsData, setProductsData] = useState([]);
@@ -103,8 +79,6 @@ export const DesktopHeader = (props: any) => {
             <input
               placeholder="Search..."
               className="text-input"
-              // onChange={props.SearchValueChangeHandler}
-              // value={props.searchValue}
               onChange={HandleSearchInput}
               value={searchValue}
             />
