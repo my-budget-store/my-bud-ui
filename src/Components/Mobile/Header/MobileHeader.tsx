@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import { BackDrop } from "Components/Shared/BackDrop";
 import { MenuSideBar } from "Components/Mobile/Sidebar/MenuSidebar";
 import { AccountSidebar } from "Components/Mobile/Sidebar/AccountSidebar";
@@ -9,14 +9,42 @@ import {
 import "Styles/side-bars.css";
 import "Styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "Store/Store";
-import { storeSearchValue } from "Store/Slices/searchValueSlice";
+import { RootState } from "Store/RTKStore/Store";
+import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
+import { SearchActionKind } from "Store/CustomStore/SearchValueStore";
+import { SearchContext } from "Store/ContextProviders/SearchContext";
+import { AuthContext } from "Store/ContextProviders/AuthContext";
+import { useStore } from "Store/CustomStore/Store";
 
 export const MobileHeader = () => {
-  const dispatch = useDispatch();
-  const searchValue = useSelector(
-    (state: RootState) => state.searchValue.value
-  );
+  const authContext = useContext(AuthContext);
+
+  // Custom Hook pattern
+  const dispatch = useStore(false)[1];
+  const state = useStore()[0];
+  const [searchValue, setSearchValue] = useState(state.searchValue);
+
+  // RTK pattern
+  // const dispatch = useDispatch();
+  // const searchValue = useSelector(
+  //   (state: RootState) => state.searchValue.value
+  // );
+
+  // Context Api pattern
+  // const searchContext = useContext(SearchContext);
+  // const searchValue = searchContext.searchValue;
+
+  const HandleSearchInput = (e: any) => {
+    // Custom Hook pattern
+    setSearchValue(e.target.value);
+    dispatch(SearchActionKind.SetSearchValue, e.target.value);
+
+    // RTK pattern
+    // dispatch(storeSearchValue(e.target.value));
+
+    // Context Api pattern
+    // searchContext.onChangeSearchInput(e);
+  };
 
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
@@ -62,7 +90,7 @@ export const MobileHeader = () => {
         <input
           placeholder="Search..."
           className="search-bar-style"
-          onChange={(e) => dispatch(storeSearchValue(e.target.value))}
+          onChange={HandleSearchInput}
           value={searchValue}
         />
       </header>

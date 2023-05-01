@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { AuthContext } from "Store/AuthContext";
+import { AuthContext } from "Store/ContextProviders/AuthContext";
 import "Styles/forms.css";
 
 export const Logout = () => {

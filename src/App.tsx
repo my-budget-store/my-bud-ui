@@ -1,4 +1,4 @@
-import { useWindowSize } from "Store/useWindowSizeHook";
+import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
 import { Routes, Route } from "react-router";
 import { DesktopHeader } from "Components/Desktop/DesktopHeader";
 import { MobileHeader } from "Components/Mobile/Header/MobileHeader";
@@ -11,7 +11,8 @@ import { Account } from "Pages/Account";
 import { Login } from "Components/Shared/Login";
 import { Logout } from "Components/Shared/Logout";
 
-export const App = () => {
+// export const App = () => {
+export function App() {
   const isDesktopMode = useWindowSize();
 
   return (
@@ -31,4 +32,4 @@ export const App = () => {
       </div>
     </>
   );
-};
+}

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "Store/ThemeContext";
+import { ThemeContext } from "Store/ContextProviders/ThemeContext";
 import "Styles/account.css";
 
 export const Account = () => {
