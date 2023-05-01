@@ -5,8 +5,8 @@ import {
   Logout as LogoutIcon,
 } from "@mui/icons-material";
 import { useContext } from "react";
-import { AuthContext } from "Store/AuthContext";
-import { useWindowSize } from "Store/useWindowSizeHook";
+import { AuthContext } from "Store/ContextProviders/AuthContext";
+import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
 
 export const UserEnabledFeatures = () => {
   const authContext = useContext(AuthContext);

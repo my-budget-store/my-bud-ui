@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "Store/AuthContext";
+import { useContext, useEffect, useReducer, useState } from "react";
+import { AuthContext } from "Store/ContextProviders/AuthContext";
 import { useSelector, useDispatch } from "react-redux";
 import {
   AccountCircle as AccountCircleIcon,
@@ -8,8 +8,8 @@ import {
 } from "@mui/icons-material";
 import { UserEnabledFeatures } from "../Shared/UserEnabledFeatures";
 import ProductsService from "Services/ProductsService";
-import { RootState } from "Store/Store";
-import { storeSearchValue } from "Store/Slices/searchValueSlice";
+import { RootState } from "Store/RTKStore/Store";
+import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
 
 interface Product {
   productId: string;
@@ -23,13 +23,17 @@ interface Product {
   quantity: number;
 }
 
-export const DesktopHeader = () => {
+export const DesktopHeader = (props: any) => {
   const authContext = useContext(AuthContext);
 
   const dispatch = useDispatch();
   const searchValue = useSelector(
     (state: RootState) => state.searchValue.value
   );
+
+  const HandleSearchInput = (e: any) => {
+    dispatch(storeSearchValue(e.target.value));
+  };
 
   const [productsData, setProductsData] = useState([]);
 
@@ -75,7 +79,7 @@ export const DesktopHeader = () => {
             <input
               placeholder="Search..."
               className="text-input"
-              onChange={(e) => dispatch(storeSearchValue(e.target.value))}
+              onChange={HandleSearchInput}
               value={searchValue}
             />
           </span>

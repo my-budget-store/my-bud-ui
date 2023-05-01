@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import { BackDrop } from "Components/Shared/BackDrop";
 import { MenuSideBar } from "Components/Mobile/Sidebar/MenuSidebar";
 import { AccountSidebar } from "Components/Mobile/Sidebar/AccountSidebar";
@@ -9,14 +9,21 @@ import {
 import "Styles/side-bars.css";
 import "Styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "Store/Store";
-import { storeSearchValue } from "Store/Slices/searchValueSlice";
+import { RootState } from "Store/RTKStore/Store";
+import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
+import { AuthContext } from "Store/ContextProviders/AuthContext";
 
 export const MobileHeader = () => {
+  const authContext = useContext(AuthContext);
+
   const dispatch = useDispatch();
   const searchValue = useSelector(
     (state: RootState) => state.searchValue.value
   );
+
+  const HandleSearchInput = (e: any) => {
+    dispatch(storeSearchValue(e.target.value));
+  };
 
   const [isMenuSideDrawerVisible, setMenuSideDrawerVisibility] =
     useState(false);
@@ -62,7 +69,7 @@ export const MobileHeader = () => {
         <input
           placeholder="Search..."
           className="search-bar-style"
-          onChange={(e) => dispatch(storeSearchValue(e.target.value))}
+          onChange={HandleSearchInput}
           value={searchValue}
         />
       </header>
