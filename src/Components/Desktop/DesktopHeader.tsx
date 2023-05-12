@@ -46,7 +46,7 @@ export const DesktopHeader = (props: any) => {
     <header>
       {authContext.isLoginFlow ? (
         <span>
-          <a href="/Home">
+          <a href="/">
             <AccountCircleIcon />
             MyBud
           </a>
@@ -54,7 +54,7 @@ export const DesktopHeader = (props: any) => {
       ) : (
         <>
           <span>
-            <a href="/Home">
+            <a href="/">
               <AccountCircleIcon />
               MyBud
             </a>

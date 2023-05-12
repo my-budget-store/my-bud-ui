@@ -10,7 +10,7 @@ import { Cart } from "Pages/Cart";
 import { Account } from "Pages/Account";
 import { Login } from "Components/Shared/Login";
 import { Logout } from "Components/Shared/Logout";
-import { useState } from "react";
+import { Error } from "Components/Shared/Error";
 
 export const App = () => {
   const isDesktopMode = useWindowSize();
@@ -20,7 +20,7 @@ export const App = () => {
       {isDesktopMode ? <DesktopHeader /> : <MobileHeader />}
       <div className="content">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/orders" element={<Orders />} />
@@ -28,6 +28,7 @@ export const App = () => {
           <Route path="/account" element={<Account />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Logout" element={<Logout />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
     </>
