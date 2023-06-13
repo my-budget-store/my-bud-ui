@@ -1,4 +1,4 @@
-import { useContext, useReducer, useState } from "react";
+import { useState } from "react";
 import { BackDrop } from "Components/Shared/BackDrop";
 import { MenuSideBar } from "Components/Mobile/Sidebar/MenuSidebar";
 import { AccountSidebar } from "Components/Mobile/Sidebar/AccountSidebar";
@@ -11,11 +11,8 @@ import "Styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "Store/RTKStore/Store";
 import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
-import { AuthContext } from "Store/ContextProviders/AuthContext";
 
-export const MobileHeader = () => {
-  const authContext = useContext(AuthContext);
-
+export default function MobileHeader() {
   const dispatch = useDispatch();
   const searchValue = useSelector(
     (state: RootState) => state.searchValue.value
@@ -75,4 +72,4 @@ export const MobileHeader = () => {
       </header>
     </>
   );
-};
+}
