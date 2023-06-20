@@ -1,23 +1,19 @@
-import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
 import { Routes, Route } from "react-router";
-import { DesktopHeader } from "Components/Desktop/DesktopHeader";
-import { MobileHeader } from "Components/Mobile/Header/MobileHeader";
 import { Home } from "Pages/Home";
 import { Products } from "Pages/Products";
 import { Wishlist } from "Pages/Wishlist";
 import { Orders } from "Pages/Orders";
 import { Cart } from "Pages/Cart";
 import { Account } from "Pages/Account";
-import { Login } from "Components/Shared/Login";
-import { Logout } from "Components/Shared/Logout";
-import { Error } from "Components/Shared/Error";
+import { Login } from "Components/Login";
+import { Logout } from "Components/Logout";
+import { Error } from "Components/Error";
+import Header from "Components/Header";
 
 export const App = () => {
-  const isDesktopMode = useWindowSize();
-
   return (
     <>
-      {isDesktopMode ? <DesktopHeader /> : <MobileHeader />}
+      <Header />
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />

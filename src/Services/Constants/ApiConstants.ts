@@ -3,7 +3,7 @@ const BaseUrl = "https://localhost:7101";
 export const AuthApi = {
   LoginUser: BaseUrl + "/mybud/user/login",
   RegisterUser: BaseUrl + "/mybud/user/register",
-  ValidateToken: BaseUrl + "/mybud/validate",
+  ValidateToken: BaseUrl + "/mybud/token/validate",
 };
 
 export const ProductApi = {

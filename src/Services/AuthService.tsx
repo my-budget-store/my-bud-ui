@@ -16,7 +16,7 @@ const AuthService = {
             token,
           },
         })
-        .then((response) => {
+        .then((response:any) => {
           if (response.data) {
             return true;
           } else {
@@ -32,7 +32,7 @@ const AuthService = {
         username,
         password,
       })
-      .then((response) => {
+      .then((response:any) => {
         if (response.data) {
           setCookie("token", response.data.token);
           return true;
