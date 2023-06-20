@@ -4,17 +4,22 @@ import {
   AccountCircleOutlined as AccountCircleOutlinedIcon,
   Logout as LogoutIcon,
 } from "@mui/icons-material";
-import { useContext } from "react";
-import { AuthContext } from "Store/ContextProviders/AuthContext";
 import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
+import { useAuth } from "react-oidc-context";
+import { useNavigate } from "react-router-dom";
 
 export const UserEnabledFeatures = () => {
-  const authContext = useContext(AuthContext);
   const isDesktopMode = useWindowSize();
-
+  const auth = useAuth();
+  const navigate = useNavigate();
+  
+  async function signOutRedirectCallback() {
+    await auth.signoutRedirect();
+    navigate("/Home", { replace: true });
+  }
   const LogoutLink = (
     <span>
-      <a href="/Logout">
+      <a href="" onClick={signOutRedirectCallback}>
         <LogoutIcon />
         Logout
       </a>

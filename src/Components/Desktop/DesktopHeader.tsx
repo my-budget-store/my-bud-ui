@@ -1,14 +1,12 @@
 import { UserEnabledFeatures } from "Components/Shared/UserEnabledFeatures";
-import React, { useContext } from "react";
 import CommonHeader from "./CommonHeader";
-import { AccountCircle as AccountCircleIcon } from "@mui/icons-material";
-import { AuthContext } from "Store/ContextProviders/AuthContext";
 import { LoginHeader } from "../Shared/LoginHeader";
+import { useAuth } from "react-oidc-context";
 
 const Header = () => {
-  const auth = useContext(AuthContext);
+  const auth = useAuth();
   let header;
-  if (auth.isUserLoggedIn) {
+  if (auth.isAuthenticated) {
     header = (
       <>
         <UserEnabledFeatures />
