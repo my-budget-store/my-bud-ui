@@ -1,25 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "App";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeContextProvider } from "Store/ContextProviders/ThemeContext";
 import { Provider } from "react-redux";
-import { store } from "Store/RTKStore/Store";
-import "Styles/index.css";
+import { ThemeContextProvider } from "context/themeContext";
+import { store } from "redux/store";
+import { AuthContextProvider } from "context/AuthContext";
+import App from "./App";
+import "styles/index.css";
 import { AuthProvider } from "react-oidc-context";
+import { oidcConfig } from "constants/oidcConfig";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-
-const oidcConfig = {
-  authority: "https://localhost:7121",
-  client_id: "mybud",
-  redirect_uri: "http://localhost:3000",
-  response_type: "code",
-  scope: "openid profile api1",
-  post_logout_redirect_uri: "http://localhost:3000",
-};
 
 root.render(
   <React.StrictMode>
@@ -27,7 +20,9 @@ root.render(
       <ThemeContextProvider>
         <Provider store={store}>
           <AuthProvider {...oidcConfig}>
-            <App />
+            <AuthContextProvider>
+              <App />
+            </AuthContextProvider>
           </AuthProvider>
         </Provider>
       </ThemeContextProvider>

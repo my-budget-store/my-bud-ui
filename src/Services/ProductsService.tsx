@@ -1,5 +1,5 @@
-import { ProductApi } from "Services/Constants/ApiConstants";
-import { HttpRequest } from "Services/Helpers";
+import { ProductApi } from "constants/apiConstants";
+import { HttpRequest } from "services/helpers";
 
 const ProductsService = {
   GetProducts: async () => {

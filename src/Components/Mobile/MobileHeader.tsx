@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { BackDrop } from "Components/Shared/BackDrop";
-import { MenuSideBar } from "Components/Mobile/Sidebar/MenuSidebar";
-import { AccountSidebar } from "Components/Mobile/Sidebar/AccountSidebar";
+import { BackDrop } from "components/shared/BackDrop";
+import { MenuSideBar } from "components/mobile/MenuSidebar";
+import { AccountSidebar } from "components/mobile/AccountSidebar";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import "Styles/side-bars.css";
-import "Styles/header.css";
+import "styles/side-bars.css";
+import "styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "Store/RTKStore/Store";
-import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
+import { RootState } from "redux/store";
+import { storeSearchValue } from "redux/slices/searchValueSlice";
 
 export default function MobileHeader() {
   const dispatch = useDispatch();

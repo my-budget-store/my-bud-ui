@@ -1,24 +1,13 @@
-import ProductsService from "Services/ProductsService";
-import { RootState } from "Store/RTKStore/Store";
-import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
+import ProductsService from "services/productsService";
+import { RootState } from "redux/store";
+import { storeSearchValue } from "redux/slices/searchValueSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-
-interface Product {
-  productId: string;
-  userId: string;
-  name: string;
-  category: string;
-  price: number;
-  salePrice: number;
-  image: string;
-  imageUrl: string;
-  quantity: number;
-}
+import { Product } from "../../interfaces/Product";
 
 const CommonHeader = () => {
   const dispatch = useDispatch();

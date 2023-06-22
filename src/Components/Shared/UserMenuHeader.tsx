@@ -4,32 +4,29 @@ import {
   AccountCircleOutlined as AccountCircleOutlinedIcon,
   Logout as LogoutIcon,
 } from "@mui/icons-material";
-import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
-import { useAuth } from "react-oidc-context";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "context/AuthContext";
+import { useWindowSize } from "hooks/window-size";
+import { useContext } from "react";
 
-export const UserEnabledFeatures = () => {
+export const UserMenuHeader = () => {
   const isDesktopMode = useWindowSize();
-  const auth = useAuth();
-  const navigate = useNavigate();
-  
-  async function signOutRedirectCallback() {
-    await auth.signoutRedirect();
-    navigate("/Home", { replace: true });
+  const auth = useContext(AuthContext);
+
+  function signOutRedirectCallback() {
+    auth.signOutRedirect();
   }
+
   const LogoutLink = (
     <span>
-      <a href="" onClick={signOutRedirectCallback}>
+      <label className="clickable-element" onClick={signOutRedirectCallback}>
         <LogoutIcon />
         Logout
-      </a>
+      </label>
     </span>
   );
 
   const LogoutInDropDown = (
-    <div
-      className="dropdown-container right"
-    >
+    <div className="dropdown-container right">
       <div className="dropdown-spacer" />
       <div className="dropdown-content">{LogoutLink}</div>
     </div>
@@ -37,7 +34,6 @@ export const UserEnabledFeatures = () => {
 
   return (
     <>
-      {!isDesktopMode && LogoutLink}
       <span>
         <a href="/wishlist">
           <FavIcon />

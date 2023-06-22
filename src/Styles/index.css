@@ -89,6 +89,10 @@ svg {
   vertical-align: middle;
 }
 
+.clickable-element {
+  cursor: pointer;
+}
+
 .text-input {
   height: 2.2rem;
   width: 17rem;

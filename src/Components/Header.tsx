@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { AccountCircle as AccountCircleIcon } from "@mui/icons-material";
-import { useWindowSize } from "Store/CustomHooks/useWindowSizeHook";
-import MobileHeader from "Components/Mobile/MobileHeader";
-import DesktopHeader from "Components/Desktop/DesktopHeader";
+import { useWindowSize } from "hooks/window-size";
+import MobileHeader from "components/mobile/MobileHeader";
+import DesktopHeader from "components/desktop/DesktopHeader";
 
-const Header = () => {
+export default function Header() {
   const isDesktopMode = useWindowSize();
 
   const location = useLocation();
@@ -24,6 +24,4 @@ const Header = () => {
   }
 
   return isDesktopMode ? <DesktopHeader /> : <MobileHeader />;
-};
-
-export default Header;
+}
