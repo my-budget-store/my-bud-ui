@@ -1,6 +1,5 @@
-import { oidcConfig } from "constants/oidcConfig";
 import { createContext, useEffect } from "react";
-import { AuthProvider, useAuth } from "react-oidc-context";
+import { useAuth } from "react-oidc-context";
 import { useNavigate } from "react-router";
 
 export const AuthContext = createContext({

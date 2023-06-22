@@ -9,7 +9,7 @@ import {
 } from "@mui/icons-material";
 import { Product } from "../../interfaces/Product";
 
-const CommonHeader = () => {
+const PublicHeader = () => {
   const dispatch = useDispatch();
   const searchValue = useSelector(
     (state: RootState) => state.searchValue.value
@@ -63,4 +63,4 @@ const CommonHeader = () => {
   );
 };
 
-export default CommonHeader;
+export default PublicHeader;

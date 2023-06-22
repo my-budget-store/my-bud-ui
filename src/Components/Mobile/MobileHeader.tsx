@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BackDrop } from "components/shared/BackDrop";
 import { MenuSideBar } from "components/mobile/MenuSidebar";
-import { AccountSidebar } from "components/mobile/AccountSidebar";
+import AccountSidebar from "components/mobile/AccountSidebar";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
@@ -42,6 +42,7 @@ export default function MobileHeader() {
       </>
     );
   }
+  
   if (isAccountSideDrawerVisible) {
     return (
       <>
@@ -50,6 +51,7 @@ export default function MobileHeader() {
       </>
     );
   }
+
   return (
     <>
       <header>
