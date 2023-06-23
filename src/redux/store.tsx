@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import searchValueReducer from 'redux/slices/searchValueSlice'
+import sideDrawerReducer from 'redux/slices/sideDrawerSlice'
 
 export const store = configureStore({
   reducer: {
-    searchValue: searchValueReducer
+    searchValue: searchValueReducer,
+    sideDrawer: sideDrawerReducer
   },
 })
 

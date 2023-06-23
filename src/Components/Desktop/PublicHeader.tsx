@@ -1,24 +1,13 @@
 import ProductsService from "services/productsService";
-import { RootState } from "redux/store";
-import { storeSearchValue } from "redux/slices/searchValueSlice";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
 import { Product } from "../../interfaces/Product";
+import { SearchBar } from "components/shared/SearchBar";
 
 const PublicHeader = () => {
-  const dispatch = useDispatch();
-  const searchValue = useSelector(
-    (state: RootState) => state.searchValue.value
-  );
-
-  const HandleSearchInput = (e: any) => {
-    dispatch(storeSearchValue(e.target.value));
-  };
-
   const [productsData, setProductsData] = useState([]);
 
   const HandleProductsMouseOver = async () => {
@@ -50,14 +39,7 @@ const PublicHeader = () => {
           </div>
         </div>
       </span>
-      <span>
-        <input
-          placeholder="Search..."
-          className="text-input"
-          onChange={HandleSearchInput}
-          value={searchValue}
-        />
-      </span>
+      <SearchBar />
       <span className="spacer" />
     </>
   );
