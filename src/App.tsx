@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import Products from "pages/Products";
 import Wishlist from "pages/Wishlist";
@@ -16,7 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/Wishlist" element={<Wishlist />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/account" element={<Account />} />

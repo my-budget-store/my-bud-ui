@@ -1,4 +1,4 @@
-import ProductsService from "services/productsService";
+import ProductsService from "services/ProductsService";
 import { useState } from "react";
 import {
   AccountCircle as AccountCircleIcon,
