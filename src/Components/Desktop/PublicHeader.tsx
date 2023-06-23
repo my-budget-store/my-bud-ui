@@ -1,35 +1,13 @@
-import ProductsService from "Services/ProductsService";
-import { RootState } from "Store/RTKStore/Store";
-import { storeSearchValue } from "Store/RTKStore/searchValueSlice";
+import ProductsService from "services/productsService";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
+import { Product } from "../../interfaces/Product";
+import { SearchBar } from "components/shared/SearchBar";
 
-interface Product {
-  productId: string;
-  userId: string;
-  name: string;
-  category: string;
-  price: number;
-  salePrice: number;
-  image: string;
-  imageUrl: string;
-  quantity: number;
-}
-
-const CommonHeader = () => {
-  const dispatch = useDispatch();
-  const searchValue = useSelector(
-    (state: RootState) => state.searchValue.value
-  );
-
-  const HandleSearchInput = (e: any) => {
-    dispatch(storeSearchValue(e.target.value));
-  };
-
+const PublicHeader = () => {
   const [productsData, setProductsData] = useState([]);
 
   const HandleProductsMouseOver = async () => {
@@ -61,17 +39,10 @@ const CommonHeader = () => {
           </div>
         </div>
       </span>
-      <span>
-        <input
-          placeholder="Search..."
-          className="text-input"
-          onChange={HandleSearchInput}
-          value={searchValue}
-        />
-      </span>
+      <SearchBar />
       <span className="spacer" />
     </>
   );
 };
 
-export default CommonHeader;
+export default PublicHeader;

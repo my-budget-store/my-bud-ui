@@ -1,9 +1,9 @@
 import { ExpandMore } from "@mui/icons-material";
 import naf1 from "assets/naf1.jpg";
 import naf2 from "assets/naf2.jpg";
-import "Styles/orders.css";
+import "styles/orders.css";
 
-export const Orders = () => {
+export default function Orders() {
   return (
     <>
       <h1> Your Orders</h1>
@@ -52,4 +52,4 @@ export const Orders = () => {
       </ul>
     </>
   );
-};
+}

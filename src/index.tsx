@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "App";
 import { BrowserRouter } from "react-router-dom";
-import { AuthContextProvider } from "Store/ContextProviders/AuthContext";
-import { ThemeContextProvider } from "Store/ContextProviders/ThemeContext";
 import { Provider } from "react-redux";
-import { store } from "Store/RTKStore/Store";
-import "Styles/index.css";
+import { ThemeContextProvider } from "context/themeContext";
+import { store } from "redux/store";
+import { AuthContextProvider } from "context/AuthContext";
+import App from "./App";
+import "styles/index.css";
+import { AuthProvider } from "react-oidc-context";
+import { oidcConfig } from "constants/oidcConfig";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,13 +17,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthContextProvider>
-        <ThemeContextProvider>
-          <Provider store={store}>
-            <App />
-          </Provider>
-        </ThemeContextProvider>
-      </AuthContextProvider>
+      <ThemeContextProvider>
+        <Provider store={store}>
+          <AuthProvider {...oidcConfig}>
+            <AuthContextProvider>
+              <App />
+            </AuthContextProvider>
+          </AuthProvider>
+        </Provider>
+      </ThemeContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -7,9 +7,8 @@
   border-radius: 8px;
 }
 
-.menu-account-toggle {
+.flex {
   display: flex;
-  color: var(--header-font-color);
 }
 
 header {

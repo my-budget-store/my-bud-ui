@@ -1,26 +1,33 @@
-import { UserEnabledFeatures } from "Components/Shared/UserEnabledFeatures";
-import React, { useContext } from "react";
-import CommonHeader from "./CommonHeader";
-import { AccountCircle as AccountCircleIcon } from "@mui/icons-material";
-import { AuthContext } from "Store/ContextProviders/AuthContext";
-import { LoginHeader } from "../Shared/LoginHeader";
+import AccountMenu from "components/shared/AccountMenu";
+import PublicHeader from "components/desktop/PublicHeader";
+import LoginElement from "components/shared/LoginElement";
+import LogoutElement from "components/shared/LogoutElement";
+import { useAuth } from "react-oidc-context";
+import { AccountCircleOutlined as AccountCircleOutlinedIcon } from "@mui/icons-material";
 
 const Header = () => {
-  const auth = useContext(AuthContext);
-  let header;
-  if (auth.isUserLoggedIn) {
-    header = (
-      <>
-        <UserEnabledFeatures />
-      </>
-    );
-  } else {
-    header = <LoginHeader />;
-  }
   return (
     <header>
-      <CommonHeader />
-      {header}
+      <PublicHeader />
+      {useAuth().isAuthenticated ? (
+        <>
+          <AccountMenu />
+          <span className="dropdown">
+            <a href="/account">
+              <AccountCircleOutlinedIcon />
+              Account
+            </a>
+            <div className="dropdown-container right">
+              <div className="dropdown-spacer" />
+              <div className="dropdown-content">
+                <LogoutElement />
+              </div>
+            </div>
+          </span>
+        </>
+      ) : (
+        <LoginElement />
+      )}
     </header>
   );
 };

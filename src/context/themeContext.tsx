@@ -1,5 +1,5 @@
 import { createContext, useEffect } from "react";
-import { getCookie, removeCookie, setCookie } from "Services/Helpers";
+import { getCookie, removeCookie, setCookie } from "services/helpers";
 
 export const ThemeContext = createContext({
   themeIconHandler: (props: any) => {},

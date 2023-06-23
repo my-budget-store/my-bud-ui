@@ -1,6 +1,6 @@
-import "Styles/wishlist.css";
+import "styles/wishlist.css";
 
-export const Wishlist = () => {
+export default function Wishlist() {
   return (
     <>
       <h1> Your Wishlist</h1>
@@ -16,4 +16,4 @@ export const Wishlist = () => {
       </div>
     </>
   );
-};
+}

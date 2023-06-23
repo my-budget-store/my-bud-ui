@@ -1,9 +1,9 @@
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
-import "Styles/products.css";
-import "Styles/index.css";
+import "styles/products.css";
+import "styles/index.css";
 import pixel4a from "assets/pixel_4a.jpg";
 
-export const Products = () => {
+export default function Products() {
   return (
     <>
       <div className="filter-row">
@@ -146,4 +146,4 @@ export const Products = () => {
       </div>
     </>
   );
-};
+}

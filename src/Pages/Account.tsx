@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import { ThemeContext } from "Store/ContextProviders/ThemeContext";
-import "Styles/account.css";
+import { ThemeContext } from "context/themeContext";
+import accountStyles from "styles/account.module.css";
 
-export const Account = () => {
+export default function Account() {
   const themeContext = useContext(ThemeContext);
   return (
     <>
       <h1>Account Settings</h1>
-      <div className="account-container">
-        <span className="options-container">Personalization</span>
-        <span className="vl" />
-        <span className="values-container">
+      <div className={accountStyles["account-container"]}>
+        <span className={accountStyles["options-container"]}>Personalization</span>
+        <span className={accountStyles["vl"]} />
+        <span className={accountStyles["values-container"]}>
           <div>
             <span>Theme</span>
             <span>
@@ -24,4 +24,4 @@ export const Account = () => {
       </div>
     </>
   );
-};
+}

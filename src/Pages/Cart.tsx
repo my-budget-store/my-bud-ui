@@ -1,9 +1,9 @@
 import { ExpandMore } from "@mui/icons-material";
 import naf1 from "assets/naf1.jpg";
 import naf2 from "assets/naf2.jpg";
-import "Styles/cart.css";
+import "styles/cart.css";
 
-export const Cart = () => {
+export default function Cart() {
   return (
     <>
       <h1> Your Cart</h1>
@@ -62,4 +62,4 @@ export const Cart = () => {
       </ul>
     </>
   );
-};
+}
