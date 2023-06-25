@@ -1,5 +1,5 @@
-const BaseUrl = "https://localhost:7101";
+const BaseUrl = "https://localhost:7182";
 
 export const ProductApi = {
-  Products: BaseUrl + "/mybud/products",
+  Products: BaseUrl + "/api/v1/products",
 };

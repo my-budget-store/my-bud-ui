@@ -18,11 +18,6 @@ export const HttpRequest = (path: string) => {
   return {
     fetchPublic: () => axios.get(path),
     fetch: () => {
-      // let reqInstance = axios.create({
-      //   headers: {
-      //     Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-      //   },
-      // });
       axios.defaults.headers.get["Authorization"] = `Bearer ${getCookie("token")}`;
       return axios.get(path);
     },

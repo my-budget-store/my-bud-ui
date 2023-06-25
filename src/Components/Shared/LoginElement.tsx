@@ -1,12 +1,11 @@
 import { Login as LoginIcon } from "@mui/icons-material";
-import { AuthContext } from "context/AuthContext";
-import { useContext } from "react";
+import { useAuth } from "react-oidc-context";
 
 export default function LoginElement(): any {
-  const auth = useContext(AuthContext);
+  const auth = useAuth();
 
-  function signInRedirect() {
-    auth.signInRedirect();
+  async function signInRedirect() {
+    await auth.signinRedirect();
   }
 
   return (

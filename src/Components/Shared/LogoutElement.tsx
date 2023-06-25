@@ -1,12 +1,12 @@
 import { Logout as LogoutIcon } from "@mui/icons-material";
-import { AuthContext } from "context/AuthContext";
-import { useContext } from "react";
+import { useAuth } from "react-oidc-context";
 
 export default function LogoutElement(): any {
-  const auth = useContext(AuthContext);
+  const auth = useAuth();
 
-  function signOutRedirect() {
-    auth.signOutRedirect();
+  async function signOutRedirect() {
+    await auth.signoutRedirect();
+    await auth.removeUser();
   }
 
   return (

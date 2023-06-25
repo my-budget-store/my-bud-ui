@@ -1,4 +1,3 @@
-import ProductsService from "services/ProductsService";
 import { useState } from "react";
 import {
   AccountCircle as AccountCircleIcon,
@@ -6,12 +5,13 @@ import {
 } from "@mui/icons-material";
 import { Product } from "../../interfaces/Product";
 import { SearchBar } from "components/shared/SearchBar";
+import { ProductService } from "services/ProductService";
 
 const PublicHeader = () => {
   const [productsData, setProductsData] = useState([]);
 
   const HandleProductsMouseOver = async () => {
-    const response = await ProductsService.GetProducts();
+    const response = await ProductService.getProducts();
     setProductsData(response);
   };
 

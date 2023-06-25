@@ -3,7 +3,7 @@ import { User } from "oidc-client-ts";
 export const oidcConfig = {
   authority: "https://localhost:7121",
   client_id: "mybud",
-  redirect_uri: "http://localhost:3000",
+  redirect_uri: window.location.origin + window.location.pathname,
   response_type: "code",
   scope: "openid profile products.api",
   post_logout_redirect_uri: "http://localhost:3000",

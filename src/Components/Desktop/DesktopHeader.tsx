@@ -2,14 +2,16 @@ import AccountMenu from "components/shared/AccountMenu";
 import PublicHeader from "components/desktop/PublicHeader";
 import LoginElement from "components/shared/LoginElement";
 import LogoutElement from "components/shared/LogoutElement";
-import { useAuth } from "react-oidc-context";
 import { AccountCircleOutlined as AccountCircleOutlinedIcon } from "@mui/icons-material";
+import { useAuth } from "react-oidc-context";
 
-const Header = () => {
+const DesktopHeader = () => {
+  const auth = useAuth();
+
   return (
     <header>
       <PublicHeader />
-      {useAuth().isAuthenticated ? (
+      {auth?.isAuthenticated ? (
         <>
           <AccountMenu />
           <span className="dropdown">
@@ -32,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopHeader;

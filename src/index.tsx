@@ -6,9 +6,9 @@ import { ThemeContextProvider } from "context/themeContext";
 import { store } from "redux/store";
 import { AuthContextProvider } from "context/AuthContext";
 import App from "./App";
-import "styles/index.css";
 import { AuthProvider } from "react-oidc-context";
 import { oidcConfig } from "constants/oidcConfig";
+import "styles/index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
