@@ -6,14 +6,17 @@ import {
 import { Product } from "../../interfaces/Product";
 import { SearchBar } from "components/shared/SearchBar";
 import { ProductService } from "services/ProductService";
+import { useLoaderData } from "react-router-dom";
 
 const PublicHeader = () => {
-  const [productsData, setProductsData] = useState([]);
+  const productsData = useLoaderData() as Product[];
 
-  const HandleProductsMouseOver = async () => {
-    const response = await ProductService.getProducts();
-    setProductsData(response);
-  };
+  // const [productsData, setProductsData] = useState([]);
+
+  // const HandleProductsMouseOver = async () => {
+  //   const response = await ProductService.getProducts();
+  //   setProductsData(response);
+  // };
 
   return (
     <>
@@ -24,7 +27,7 @@ const PublicHeader = () => {
         </a>
       </span>
       <span className="dropdown">
-        <a href="/Products" onMouseOver={HandleProductsMouseOver}>
+        <a href="/Products">
           <MenuIcon />
           Products
         </a>

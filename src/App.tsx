@@ -1,4 +1,3 @@
-import { Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import Products from "pages/Products";
 import Wishlist from "pages/Wishlist";
@@ -9,8 +8,10 @@ import Error from "components/Error";
 import Header from "components/Header";
 import axios from "axios";
 import ProtectedRoutes from "components/ProtectedRoutes";
+import { Routes, Route } from "react-router-dom";
 import { v4 as guid } from "uuid";
 import { useAuth } from "react-oidc-context";
+import { productsLoader } from "loaders/loaders";
 
 export default function App() {
   const auth = useAuth();
@@ -36,19 +37,5 @@ export default function App() {
     return null;
   }
 
-  return (
-    <Routes>
-      <Route path="/" element={<Header />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/account" element={<Account />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<Error />} />
-    </Routes>
-  );
+  return <></>;
 }
