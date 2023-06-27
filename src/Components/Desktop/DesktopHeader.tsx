@@ -4,6 +4,7 @@ import LoginElement from "components/shared/LoginElement";
 import LogoutElement from "components/shared/LogoutElement";
 import { AccountCircleOutlined as AccountCircleOutlinedIcon } from "@mui/icons-material";
 import { useAuth } from "react-oidc-context";
+import { Link } from "react-router-dom";
 
 const DesktopHeader = () => {
   const auth = useAuth();
@@ -15,10 +16,10 @@ const DesktopHeader = () => {
         <>
           <AccountMenu />
           <span className="dropdown">
-            <a href="/account">
+            <Link to="/account">
               <AccountCircleOutlinedIcon />
               Account
-            </a>
+            </Link>
             <div className="dropdown-container right">
               <div className="dropdown-spacer" />
               <div className="dropdown-content">

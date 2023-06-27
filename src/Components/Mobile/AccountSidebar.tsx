@@ -3,6 +3,7 @@ import { AccountCircleOutlined as AccountCircleOutlinedIcon } from "@mui/icons-m
 import LogoutElement from "components/shared/LogoutElement";
 import LoginElement from "components/shared/LoginElement";
 import { useAuth } from "react-oidc-context";
+import { Link } from "react-router-dom";
 
 export default function AccountSidebar() {
   const auth = useAuth();
@@ -13,10 +14,10 @@ export default function AccountSidebar() {
         <>
           <LogoutElement />
           <span>
-            <a href="/account">
+            <Link to="/account">
               <AccountCircleOutlinedIcon />
               Account
-            </a>
+            </Link>
           </span>
           <AccountMenu />
         </>

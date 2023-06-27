@@ -1,33 +1,27 @@
-import { useState } from "react";
 import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
 import { Product } from "../../interfaces/Product";
 import { SearchBar } from "components/shared/SearchBar";
-import { ProductService } from "services/ProductService";
+import { Link, useLoaderData } from "react-router-dom";
 
 const PublicHeader = () => {
-  const [productsData, setProductsData] = useState([]);
-
-  const HandleProductsMouseOver = async () => {
-    const response = await ProductService.getProducts();
-    setProductsData(response);
-  };
+  const productsData = useLoaderData() as Product[];
 
   return (
     <>
       <span>
-        <a href="/">
+        <Link to="/">
           <AccountCircleIcon />
           MyBud
-        </a>
+        </Link>
       </span>
       <span className="dropdown">
-        <a href="/Products" onMouseOver={HandleProductsMouseOver}>
+        <Link to="/Products">
           <MenuIcon />
           Products
-        </a>
+        </Link>
         <div className="dropdown-container">
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
