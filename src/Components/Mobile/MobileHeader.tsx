@@ -14,6 +14,7 @@ import {
 import { SearchBar } from "../shared/SearchBar";
 import "styles/side-bars.css";
 import "styles/header.css";
+import { Link } from "react-router-dom";
 
 export default function MobileHeader() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ export default function MobileHeader() {
       <header>
         <span className="flex">
           <MenuIcon onClick={() => dispatch(toggleMenuSideDrawer(true))} />
-          <a href="/">MyBud</a>
+          <Link to="/">MyBud</Link>
         </span>
         <span className="spacer" />
         <span className="flex">

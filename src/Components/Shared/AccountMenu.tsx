@@ -2,22 +2,23 @@ import {
   Favorite as FavIcon,
   ShoppingCart as CartIcon,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export default function AccountMenu() {
   return (
     <>
       <span>
-        <a href="/wishlist">
+        <Link to="/wishlist">
           <FavIcon />
           Wishlist
-        </a>
+        </Link>
       </span>
       <span>
-        <a href="/cart">
+        <Link to="/cart">
           <CartIcon />
           Cart
-        </a>
+        </Link>
       </span>
     </>
   );
-};
+}

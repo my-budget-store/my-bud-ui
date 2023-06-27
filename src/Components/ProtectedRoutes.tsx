@@ -8,7 +8,9 @@ const ProtectedRoutes = () => {
   useEffect(() => {
     return () => {
       if (!auth.isAuthenticated) {
-        auth.signinRedirect();
+        auth.signinSilent().catch(() => {
+          auth.signinRedirect();
+        });
       }
     };
   }, []);

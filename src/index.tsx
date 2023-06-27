@@ -9,7 +9,7 @@ import { AuthContextProvider } from "context/AuthContext";
 import { AuthProvider } from "react-oidc-context";
 import { oidcConfig } from "constants/oidcConfig";
 import "styles/index.css";
-import { router } from "components/Routes/routes";
+import { router } from "routes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

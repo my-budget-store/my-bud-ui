@@ -1,19 +1,20 @@
 import { Home as HomeIcon, Menu as MenuIcon } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export const MenuSideBar = () => {
   return (
     <header className="common-side-menu show-side-menu">
       <span>
-        <a href="/Home">
+        <Link to="/Home">
           <HomeIcon/>
           MyBud
-        </a>
+        </Link>
       </span>
       <span>
-        <a href="/Products">
+        <Link to="/Products">
           <MenuIcon/>
           Products
-        </a>
+        </Link>
       </span>
     </header>
   );
