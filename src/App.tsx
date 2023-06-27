@@ -8,10 +8,11 @@ import Error from "components/Error";
 import Header from "components/Header";
 import axios from "axios";
 import ProtectedRoutes from "components/ProtectedRoutes";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, RouterProvider } from "react-router-dom";
 import { v4 as guid } from "uuid";
 import { useAuth } from "react-oidc-context";
 import { productsLoader } from "loaders/loaders";
+import { router } from "components/Routes/routes";
 
 export default function App() {
   const auth = useAuth();
@@ -36,6 +37,5 @@ export default function App() {
   if (auth.isLoading) {
     return null;
   }
-
   return <></>;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { BrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeContextProvider } from "context/themeContext";
 import { store } from "redux/store";
@@ -17,18 +17,15 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeContextProvider>
-        <Provider store={store}>
-          <AuthProvider {...oidcConfig}>
-            <AuthContextProvider>
-              <RouterProvider router={router}>
-                <App />
-              </RouterProvider>
-            </AuthContextProvider>
-          </AuthProvider>
-        </Provider>
-      </ThemeContextProvider>
-    </BrowserRouter>
+    <ThemeContextProvider>
+      <Provider store={store}>
+        <AuthProvider {...oidcConfig}>
+          <AuthContextProvider>
+            <App />
+            <RouterProvider router={router} />
+          </AuthContextProvider>
+        </AuthProvider>
+      </Provider>
+    </ThemeContextProvider>
   </React.StrictMode>
 );

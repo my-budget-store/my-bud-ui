@@ -10,7 +10,7 @@ import ProtectedRoutes from "components/ProtectedRoutes";
 import { productsLoader } from "loaders/loaders";
 import { createBrowserRouter } from "react-router-dom";
 
-export const router = createBrowserRouter([
+export const router: any = createBrowserRouter([
   {
     path: "/",
     element: <Header />,

@@ -38,7 +38,7 @@ import { fetchProducts } from "thunks/productsThunk";
 //   return { type: "FETCH_PRODUCTS_FAILURE", payload: error };
 // };
 
-export const productsLoader = () => {
+export const productsLoader = async () => {
   return async () => {
     return await ProductService.getProducts();
   };

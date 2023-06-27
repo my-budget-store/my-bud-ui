@@ -34,11 +34,11 @@ const PublicHeader = () => {
         <div className="dropdown-container">
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
-            {productsData.map((product: Product) => (
+            {/* {productsData.map((product: Product) => (
               <a href="/" key={product.productId}>
                 {product.name}
               </a>
-            ))}
+            ))} */}
           </div>
         </div>
       </span>
