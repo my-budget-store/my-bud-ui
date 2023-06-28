@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import { ThemeContextProvider } from "context/themeContext";
+import { ThemeContextProvider } from "context/ThemeContext";
 import { store } from "redux/store";
 import { AuthContextProvider } from "context/AuthContext";
 import { AuthProvider } from "react-oidc-context";
 import { oidcConfig } from "constants/oidcConfig";
 import "styles/index.css";
-import { router } from "routes";
+
+import { RouterProvider } from "react-router";
+import { router as browserRouter } from "router/browserRouter";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,8 +21,7 @@ root.render(
       <Provider store={store}>
         <AuthProvider {...oidcConfig}>
           <AuthContextProvider>
-            <App />
-            <RouterProvider router={router} />
+            <RouterProvider router={browserRouter} />
           </AuthContextProvider>
         </AuthProvider>
       </Provider>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "context/themeContext";
+import { ThemeContext } from "context/ThemeContext";
 import accountStyles from "styles/account.module.css";
 
 export default function Account() {

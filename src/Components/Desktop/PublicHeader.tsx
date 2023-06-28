@@ -26,9 +26,9 @@ const PublicHeader = () => {
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
             {productsData.map((product: Product) => (
-              <a href="/" key={product.productId}>
+              <Link to="/" key={product.productId}>
                 {product.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

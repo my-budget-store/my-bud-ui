@@ -7,7 +7,7 @@ import Products from "pages/Products";
 import Wishlist from "pages/Wishlist";
 import Error from "components/Error";
 import ProtectedRoutes from "components/ProtectedRoutes";
-import { productsLoader } from "loaders/loaders";
+import { productsLoader } from "router/productsLoader";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router: any = createBrowserRouter([
