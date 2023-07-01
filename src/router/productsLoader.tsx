@@ -1,5 +1,9 @@
+import { FilterService } from "services/FilterService";
 import { ProductService } from "services/ProductService";
 
 export const productsLoader = () => {
-  return ProductService.getProducts();
+  const products = ProductService.getProducts();
+  const filters = FilterService.getFilters();
+  
+  return [products, filters];
 };

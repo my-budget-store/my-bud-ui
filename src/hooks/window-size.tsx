@@ -8,7 +8,10 @@ export const useWindowSize = () => {
     const resizeHandler = () => {
       setSize([window.innerHeight, window.innerWidth]);
     };
+
     window.addEventListener("resize", resizeHandler);
+
+    //clean up function
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
