@@ -23,6 +23,7 @@ export const router: any = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+        loader: productsLoader,
       },
       {
         element: <ProtectedRoutes />,

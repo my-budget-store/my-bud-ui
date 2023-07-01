@@ -14,6 +14,5 @@ export const ProductApi = {
 };
 
 export const FilterApi = {
-  Filters: "https://localhost:7103/mybud/filters",
-  // Filters: BaseUrl + "/mybud/filters",
+  Filters: BaseUrl + "/filter",
 };

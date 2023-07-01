@@ -3,20 +3,20 @@ import LoginElement from "components/shared/LoginElement";
 import LogoutElement from "components/shared/LogoutElement";
 import { useAuth } from "react-oidc-context";
 import { Link, useLoaderData } from "react-router-dom";
-import { Product } from "../../interfaces/Product";
 import { SearchBar } from "components/shared/SearchBar";
 import {
   AccountCircleOutlined as AccountCircleOutlinedIcon,
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import { FilterBase } from "interfaces/Filter";
+import { ProductFiltersEntity } from "interfaces/Filter";
 
 const DesktopHeader = () => {
   const auth = useAuth();
-  const [productsData, filtersData] = useLoaderData() as Array<
-    Product[] | FilterBase[]
-  >;
+  const [productsData, filtersData] = useLoaderData() as [
+    Product[],
+    ProductFiltersEntity
+  ];
 
   return (
     <header>
@@ -34,11 +34,15 @@ const DesktopHeader = () => {
         <div className="dropdown-container">
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
-            {(productsData as Product[]).map((product: Product) => (
-              <Link to="/" key={product.productId}>
-                {product.name}
-              </Link>
-            ))}
+            {productsData && productsData.length > 0 ? (
+              productsData.map((product: Product) => (
+                <Link to="/" key={product.productId}>
+                  {product.name}
+                </Link>
+              ))
+            ) : (
+              <p>No products available</p>
+            )}
           </div>
         </div>
       </span>

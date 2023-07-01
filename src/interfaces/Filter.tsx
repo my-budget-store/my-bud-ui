@@ -1,11 +1,6 @@
-export interface FilterBase {
-  PriceRange: number;
-  Brand: string[];
-}
+import { ObjectId } from 'mongodb';
 
-export interface MobileFilters extends FilterBase {
-  DisplaySize: number;
-  Storage: number;
-  Ram: number;
-  Processor: string;
+export interface ProductFiltersEntity {
+  productFiltersId: ObjectId;
+  productFiltersData: Record<string, string[]>;
 }

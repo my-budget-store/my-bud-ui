@@ -4,8 +4,6 @@ import "styles/index.css";
 import pixel4a from "assets/pixel_4a.jpg";
 import { ProductFilters } from "components/desktop/ProductFilters";
 import { useLoaderData } from "react-router";
-import { Product } from "interfaces/Product";
-import { FilterBase } from "interfaces/Filter";
 
 export default function Products() {
   return (
