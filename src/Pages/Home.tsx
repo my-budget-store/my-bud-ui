@@ -4,7 +4,10 @@ import pixel4a from "assets/pixel_4a.jpg";
 export default function Home() {
   return (
     <>
-      <div className="home-container">
+      <h1>
+        Newly Launched
+      </h1>
+      <div>
         <span className="card">
           <img src={pixel4a} alt="" />
           Pixel 4a

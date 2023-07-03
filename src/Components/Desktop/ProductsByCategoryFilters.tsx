@@ -2,7 +2,7 @@ import React from "react";
 import { ProductFiltersEntity } from "interfaces/Filter";
 import { useLoaderData, useParams } from "react-router";
 
-export const ProductFilters: React.FC = () => {
+export const ProductsByCategoryFilters: React.FC = () => {
   const [productsData, filtersData] = useLoaderData() as [
     Product[],
     ProductFiltersEntity

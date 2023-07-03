@@ -11,16 +11,21 @@ export const ProductService = {
       return [];
     }
   },
-  getProductById: async (token: string | undefined, id: number) => {
+  getProductById: async (id: number) => {
     try {
-      const response = await axios.get(ProductApi.Products + "/" + id, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(ProductApi.Products + "/" + id);
       return response.data;
     } catch (error) {
       console.error("Error retrieving product with id: " + id, error);
+      return [];
+    }
+  },
+  getProductsByCategory: async (category: string | undefined) => {
+    try {
+      const response = await axios.get(ProductApi.Products + "/" + category);
+      return response.data;
+    } catch (error) {
+      console.error("Error retrieving product with id: " + category, error);
       return [];
     }
   },

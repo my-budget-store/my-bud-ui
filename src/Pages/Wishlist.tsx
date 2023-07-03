@@ -5,7 +5,7 @@ export default function Wishlist() {
   return (
     <>
       <h1> Your Wishlist</h1>
-      <div className="wishlist-container">
+      <div className="flex-c-w">
         <span className="card">
           <img src={pixel4a} alt="" />
           Pixel 4a

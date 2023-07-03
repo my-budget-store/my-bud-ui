@@ -8,13 +8,13 @@ export default function AccountMenu() {
   return (
     <>
       <span>
-        <Link to="/wishlist">
+        <Link to="/Wishlist">
           <FavIcon />
           Wishlist
         </Link>
       </span>
       <span>
-        <Link to="/cart">
+        <Link to="/Cart">
           <CartIcon />
           Cart
         </Link>

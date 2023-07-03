@@ -9,18 +9,17 @@ export default function Products() {
   return (
     <>
       <div className="filter-row">
-        {/* TODO: Dynamically update this section */}
-        <span className="product-category">
-          <a href="/" className="page-nav-link label-l">
+        <span className="page-nav">
+          <a href="/" className="page-nav label-l">
             Mobiles
           </a>
           <ArrowRight />
-          <a href="/" className="page-nav-link label-l">
+          <a href="/" className="page-nav label-l">
             Google Pixel
           </a>
         </span>
         <span className="spacer" />
-        <span className="horizontal-filter">
+        <span className="flex-c-w">
           <span>
             Price
             <ExpandMore />
@@ -37,9 +36,9 @@ export default function Products() {
             </div>
           </span>
         </span>
-        <ProductFilters />
       </div>
       <div className="container">
+        <ProductFilters />
         <span className="card-container">
           <span className="card">
             <img src={pixel4a} alt="" />

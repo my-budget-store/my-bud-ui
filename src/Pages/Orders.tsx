@@ -8,7 +8,7 @@ export default function Orders() {
     <>
       <h1> Your Orders</h1>
       <div className="filter-row">
-        <div className="horizontal-filter dropdown">
+        <div className="flex-c-w dropdown">
           Year
           <ExpandMore />
           <ul className="ul dropdown-container float-right">

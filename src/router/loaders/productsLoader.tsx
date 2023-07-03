@@ -11,6 +11,6 @@ export const productsLoader = () => {
     filtersData = await FilterService.getFilters();
     return [productsData, filtersData];
   }
-  
+
   return GetLoaderData();
 };

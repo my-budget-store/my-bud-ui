@@ -12,4 +12,18 @@ export const FilterService = {
     }
     return undefined;
   },
+  getFiltersByCategory: async (
+    category: string | undefined
+  ): Promise<ProductFiltersEntity | undefined> => {
+    try {
+      const response = await axios.get(FilterApi.Filters + "/" + category);
+      return response.data;
+    } catch (error) {
+      console.error(
+        "Error retrieving filters based on category: " + category,
+        error
+      );
+      return undefined;
+    }
+  },
 };

@@ -1,7 +1,8 @@
-.page-nav-link {
+.page-nav {
   text-decoration: none;
   color: var(--font-color);
   vertical-align: middle;
+  min-width: 14rem;
 }
 
 .container {
@@ -27,4 +28,3 @@
   align-content: flex-start;
   justify-content: center;
 }
-

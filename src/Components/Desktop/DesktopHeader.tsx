@@ -27,16 +27,16 @@ const DesktopHeader = () => {
         </Link>
       </span>
       <span className="dropdown">
-        <Link to="/Products">
+        <label className="flex-c-w">
           <MenuIcon />
           Products
-        </Link>
+        </label>
         <div className="dropdown-container">
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
             {productsData && productsData.length > 0 ? (
               productsData.map((product: Product) => (
-                <Link to="/" key={product.productId}>
+                <Link to={`Products/${product.name}`} key={product.productId}>
                   {product.name}
                 </Link>
               ))
@@ -52,7 +52,7 @@ const DesktopHeader = () => {
         <>
           <AccountMenu />
           <span className="dropdown">
-            <Link to="/account">
+            <Link to="/Account">
               <AccountCircleOutlinedIcon />
               Account
             </Link>
