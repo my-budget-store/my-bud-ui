@@ -6,7 +6,7 @@ export const productsByCategoryLoader = async ({ params }: any) => {
   let productsData: Product[];
   let filtersData: ProductFiltersEntity | undefined;
 
-  productsData = await ProductService.getProductsByCategory(params);
-  filtersData = await FilterService.getFiltersByCategory(params);
+  productsData = await ProductService.getProductsByCategory(params.category);
+  filtersData = await FilterService.getFiltersByCategory(params.category);
   return [productsData, filtersData];
 };

@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
 import "styles/index.css";
-import pixel4a from "assets/pixel_4a.jpg";
 import { useLoaderData } from "react-router";
 import { ProductFiltersEntity } from "interfaces/Filter";
 
@@ -65,13 +64,30 @@ export const ProductsByCategory = () => {
           )}
         </div>
         {productsData.map((product: Product) => {
+          
+          const imageData = decodeBase64ToUint8Array(product.image);
+
+          const blob = new Blob([imageData], { type: "image/jpeg" });
+          const imageUrl = URL.createObjectURL(blob);
+
+          function decodeBase64ToUint8Array(base64: any) {
+            const binaryString = window.atob(base64);
+            const length = binaryString.length;
+            const bytes = new Uint8Array(length);
+
+            for (let i = 0; i < length; i++) {
+              bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            return bytes;
+          }
           return (
-            <div className="card-container">
+            <span className="card-container" key={product.productId}>
               <span className="card">
-                <img src={pixel4a} alt="" />
+                <img src={imageUrl} alt="" />
                 {product.name}
               </span>
-            </div>
+            </span>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 import "styles/home.css";
-import pixel4a from "assets/pixel_4a.jpg";
+import pixel4a from "assets/images/pixel_4a.jpg";
 
 export default function Home() {
   return (

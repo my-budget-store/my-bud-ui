@@ -1,6 +1,6 @@
 import { ExpandMore } from "@mui/icons-material";
-import naf1 from "assets/naf1.jpg";
-import naf2 from "assets/naf2.jpg";
+import naf1 from "assets/images/naf1.jpg";
+import naf2 from "assets/images/naf2.jpg";
 import "styles/cart.css";
 
 export default function Cart() {

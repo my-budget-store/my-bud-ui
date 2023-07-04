@@ -1,7 +1,7 @@
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
 import "styles/index.css";
-import pixel4a from "assets/pixel_4a.jpg";
+import pixel4a from "assets/images/pixel_4a.jpg";
 import { ProductFilters } from "components/desktop/ProductFilters";
 import { useLoaderData } from "react-router";
 

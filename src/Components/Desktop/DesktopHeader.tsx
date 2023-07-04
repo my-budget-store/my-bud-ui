@@ -36,8 +36,8 @@ const DesktopHeader = () => {
           <div className="dropdown-content">
             {productsData && productsData.length > 0 ? (
               productsData.map((product: Product) => (
-                <Link to={`Products/${product.name}`} key={product.productId}>
-                  {product.name}
+                <Link to={`Products/${product.category}`} key={product.productId}>
+                  {product.category}
                 </Link>
               ))
             ) : (
