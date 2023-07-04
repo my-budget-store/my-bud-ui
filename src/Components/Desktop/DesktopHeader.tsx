@@ -1,22 +1,58 @@
 import AccountMenu from "components/shared/AccountMenu";
-import PublicHeader from "components/desktop/PublicHeader";
 import LoginElement from "components/shared/LoginElement";
 import LogoutElement from "components/shared/LogoutElement";
-import { AccountCircleOutlined as AccountCircleOutlinedIcon } from "@mui/icons-material";
 import { useAuth } from "react-oidc-context";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { SearchBar } from "components/shared/SearchBar";
+import {
+  AccountCircleOutlined as AccountCircleOutlinedIcon,
+  AccountCircle as AccountCircleIcon,
+  Menu as MenuIcon,
+} from "@mui/icons-material";
+import { ProductFiltersEntity } from "interfaces/Filter";
 
 const DesktopHeader = () => {
   const auth = useAuth();
+  const [productsData, filtersData] = useLoaderData() as [
+    Product[],
+    ProductFiltersEntity
+  ];
 
   return (
     <header>
-      <PublicHeader />
+      <span>
+        <Link to="/">
+          <AccountCircleIcon />
+          MyBud
+        </Link>
+      </span>
+      <span className="dropdown">
+        <label className="flex-c-w">
+          <MenuIcon />
+          Products
+        </label>
+        <div className="dropdown-container">
+          <div className="dropdown-spacer" />
+          <div className="dropdown-content">
+            {productsData && productsData.length > 0 ? (
+              productsData.map((product: Product) => (
+                <Link to={`Products/${product.category}`} key={product.productId}>
+                  {product.category}
+                </Link>
+              ))
+            ) : (
+              <p>No products available</p>
+            )}
+          </div>
+        </div>
+      </span>
+      <SearchBar />
+      <span className="spacer" />
       {auth?.isAuthenticated ? (
         <>
           <AccountMenu />
           <span className="dropdown">
-            <Link to="/account">
+            <Link to="/Account">
               <AccountCircleOutlinedIcon />
               Account
             </Link>

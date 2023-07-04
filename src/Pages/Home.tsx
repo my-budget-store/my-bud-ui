@@ -1,19 +1,17 @@
-import "styles/home.css"
+import "styles/home.css";
+import pixel4a from "assets/images/pixel_4a.jpg";
 
 export default function Home() {
   return (
     <>
-      <div className="home-container">
-        <span className="card">Pixel 4a</span>
-        <span className="card">Pixel 4a 5G</span>
-        <span className="card">Pixel 5a</span>
-        <span className="card">Pixel 5</span>
-        <span className="card">Pixel 6a</span>
-        <span className="card">Pixel 6</span>
-        <span className="card">Pixel 6pro</span>
-        <span className="card">Pixel 7a</span>
-        <span className="card">Pixel 7</span>
-        <span className="card">Pixel 7pro</span>
+      <h1>
+        Newly Launched
+      </h1>
+      <div>
+        <span className="card">
+          <img src={pixel4a} alt="" />
+          Pixel 4a
+        </span>
       </div>
     </>
   );

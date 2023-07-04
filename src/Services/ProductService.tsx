@@ -1,6 +1,5 @@
 import axios from "axios";
 import { ProductApi } from "constants/apiConstants";
-import { Product } from "interfaces/Product";
 
 export const ProductService = {
   getProducts: async (): Promise<Product[] | []> => {
@@ -12,16 +11,35 @@ export const ProductService = {
       return [];
     }
   },
-  getProductById: async (token: string | undefined, id: number) => {
+  getProductById: async (id: number) => {
     try {
-      const response = await axios.get(ProductApi.Products + "/" + id, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(ProductApi.Products + "/" + id);
       return response.data;
     } catch (error) {
       console.error("Error retrieving product with id: " + id, error);
+      return [];
+    }
+  },
+  getProductsByCategory: async (category: string | undefined) => {
+    try {
+      const response = await axios.get(ProductApi.Products + "/category/" + category);
+      return response.data;
+    } catch (error) {
+      console.error("Error retrieving product with id: " + category, error);
+      return [];
+    }
+  },
+  createProduct: async (token: string | undefined, formData: any) => {
+    try {
+      const response = await axios.post(ProductApi.Products, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return response.data as Product;
+    } catch (error) {
+      console.error("Error creating product", error);
       return [];
     }
   },

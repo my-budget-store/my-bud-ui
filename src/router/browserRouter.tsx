@@ -3,12 +3,15 @@ import Account from "pages/Account";
 import Cart from "pages/Cart";
 import Home from "pages/Home";
 import Orders from "pages/Orders";
-import Products from "pages/Products";
+import AllProducts from "pages/AllProducts";
 import Wishlist from "pages/Wishlist";
 import Error from "components/Error";
 import ProtectedRoutes from "components/ProtectedRoutes";
-import { productsLoader } from "router/productsLoader";
+import { productsLoader } from "router/loaders/productsLoader";
 import { createBrowserRouter } from "react-router-dom";
+import { ProductsByCategory } from "pages/ProductsByCategory";
+import { productsByCategoryLoader } from "./loaders/productsByCategoryLoader";
+import PostProduct from "components/desktop/PostProduct";
 
 export const router: any = createBrowserRouter([
   {
@@ -21,8 +24,14 @@ export const router: any = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/products",
-        element: <Products />,
+        path: "/Products",
+        element: <AllProducts />,
+        loader: productsLoader,
+      },
+      {
+        path: "/Products/:category",
+        element: <ProductsByCategory />,
+        loader: productsByCategoryLoader,
       },
       {
         element: <ProtectedRoutes />,
@@ -42,6 +51,10 @@ export const router: any = createBrowserRouter([
           {
             path: "/account",
             element: <Account />,
+          },
+          {
+            path: "/product/create",
+            element: <PostProduct />,
           },
         ],
       },

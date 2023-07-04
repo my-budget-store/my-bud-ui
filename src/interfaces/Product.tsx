@@ -1,11 +1,15 @@
-export interface Product {
-  productId: string;
+enum ProductCategory {
+  // Define your product categories here
+}
+
+interface Product {
+  productId: number;
   userId: string;
   name: string;
   category: string;
   price: number;
   salePrice: number;
-  image: string;
-  imageUrl: string;
+  uploadedImage: File;
+  image?: ArrayBuffer | null;
   quantity: number;
 }

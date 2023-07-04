@@ -10,5 +10,9 @@ export const IdentityConstants = {
 const BaseUrl = "https://localhost:7101";
 
 export const ProductApi = {
-  Products: BaseUrl + "/mybud/products",
+  Products: BaseUrl + "/products/products",
+};
+
+export const FilterApi = {
+  Filters: BaseUrl + "/filters/filter",
 };
