@@ -10,6 +10,6 @@ interface Product {
   price: number;
   salePrice: number;
   uploadedImage: File;
-  image?: ArrayBuffer | null;
+  image: ArrayBuffer;
   quantity: number;
 }

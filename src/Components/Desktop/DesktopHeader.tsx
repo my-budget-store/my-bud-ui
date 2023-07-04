@@ -34,15 +34,16 @@ const DesktopHeader = () => {
         <div className="dropdown-container">
           <div className="dropdown-spacer" />
           <div className="dropdown-content">
-            {productsData && productsData.length > 0 ? (
+            {productsData &&
+              productsData.length > 0 &&
               productsData.map((product: Product) => (
-                <Link to={`Products/${product.category}`} key={product.productId}>
+                <Link
+                  to={`Products/${product.category}`}
+                  key={product.productId}
+                >
                   {product.category}
                 </Link>
-              ))
-            ) : (
-              <p>No products available</p>
-            )}
+              ))}
           </div>
         </div>
       </span>

@@ -2,8 +2,6 @@ import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
 import "styles/index.css";
 import pixel4a from "assets/images/pixel_4a.jpg";
-import { ProductFilters } from "components/desktop/ProductFilters";
-import { useLoaderData } from "react-router";
 
 export default function Products() {
   return (
@@ -38,7 +36,6 @@ export default function Products() {
         </span>
       </div>
       <div className="container">
-        <ProductFilters />
         <span className="card-container">
           <span className="card">
             <img src={pixel4a} alt="" />

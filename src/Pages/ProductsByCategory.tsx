@@ -4,6 +4,7 @@ import "styles/products.css";
 import "styles/index.css";
 import { useLoaderData } from "react-router";
 import { ProductFiltersEntity } from "interfaces/Filter";
+import { parseImageUrl } from "services/helpers";
 
 export const ProductsByCategory = () => {
   const { category } = useParams();
@@ -11,10 +12,6 @@ export const ProductsByCategory = () => {
     Product[],
     ProductFiltersEntity
   ];
-
-  if (!filtersData || !filtersData.productFiltersData) {
-    return null;
-  }
 
   return (
     <>
@@ -49,9 +46,9 @@ export const ProductsByCategory = () => {
         <div className="filter-v">
           {Object.entries(filtersData.productFiltersData).map(
             ([propertyName, values]) => (
-              <div className="filter-group" key={propertyName}>
-                <h3 className="filter-heading">{propertyName}</h3>
-                <ul className="filter-list">
+              <div key={propertyName}>
+                <h3>{propertyName}</h3>
+                <ul>
                   {values.map((value: string) => (
                     <li key={value}>
                       <input type="checkbox" id={value} />
@@ -64,23 +61,7 @@ export const ProductsByCategory = () => {
           )}
         </div>
         {productsData.map((product: Product) => {
-          
-          const imageData = decodeBase64ToUint8Array(product.image);
-
-          const blob = new Blob([imageData], { type: "image/jpeg" });
-          const imageUrl = URL.createObjectURL(blob);
-
-          function decodeBase64ToUint8Array(base64: any) {
-            const binaryString = window.atob(base64);
-            const length = binaryString.length;
-            const bytes = new Uint8Array(length);
-
-            for (let i = 0; i < length; i++) {
-              bytes[i] = binaryString.charCodeAt(i);
-            }
-
-            return bytes;
-          }
+          const imageUrl = parseImageUrl(product.image);
           return (
             <span className="card-container" key={product.productId}>
               <span className="card">
