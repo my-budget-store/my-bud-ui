@@ -35,7 +35,7 @@ export default function Products() {
           </span>
         </span>
       </div>
-      <div className="container">
+      <div className="flex">
         <span className="card-container">
           <span className="card">
             <img src={pixel4a} alt="" />

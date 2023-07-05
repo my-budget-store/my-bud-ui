@@ -12,6 +12,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { ProductsByCategory } from "pages/ProductsByCategory";
 import { productsByCategoryLoader } from "./loaders/productsByCategoryLoader";
 import ProductAdmin from "pages/ProductAdmin";
+import { ProductDetails } from "pages/ProductDetails";
 
 export const router: any = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ export const router: any = createBrowserRouter([
         path: "/Products/:category",
         element: <ProductsByCategory />,
         loader: productsByCategoryLoader,
+      },
+      {
+        path: "/ProductDetails",
+        element: <ProductDetails />,
+        // loader: productsByCategoryLoader,
       },
       {
         element: <ProtectedRoutes />,

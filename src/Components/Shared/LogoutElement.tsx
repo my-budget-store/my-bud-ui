@@ -10,11 +10,11 @@ export default function LogoutElement(): any {
   }
 
   return (
-    <span>
+    <>
       <label className="clickable-element" onClick={signOutRedirect}>
         <LogoutIcon />
         Sign out
       </label>
-    </span>
+    </>
   );
 }

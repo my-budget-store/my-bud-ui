@@ -1,0 +1,69 @@
+.dropdown:hover {
+  background-color: var(--header-bg-color);
+  color: var(--header-font-color);
+  border-radius: 6px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+/* common properties of dropdown container to be used along with element specific container */
+.common-container {
+  position: fixed;
+  z-index: 4;
+  width: 6.4rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+/* dropdown content is the whole list of items it's common for whole application 
+    and is rendered inside dropdown-container*/
+.dropdown-content {
+  background-color: var(--header-bg-color);
+  color: var(--header-font-color);
+  border-radius: 6px;
+  margin-top: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 3px 6px 3px 6px;
+}
+
+/* initialize specific container and it's position*/
+.popularity-container {
+  display: none;
+  right: 1.75rem;
+}
+/* on :hover on dropdown element, the specific container for dropdown should be displayed. */
+.dropdown:hover .popularity-container {
+  display: block;
+}
+
+.rating-container {
+  display: none;
+  right: 8.2rem;
+}
+.dropdown:hover .rating-container {
+  display: block;
+}
+
+.price-container {
+  display: none;
+  right: 13.6rem;
+}
+.dropdown:hover .price-container {
+  display: block;
+}
+
+.products-container {
+  display: none;
+  padding-top: 3px;
+}
+/* on :hover on dropdown element, the specific container for dropdown should be displayed. */
+.dropdown:hover .products-container {
+  display: block;
+}
+
+.signout-container {
+  display: none;
+  right: 0.3rem;
+  padding-top: 3px;
+}
+/* on :hover on dropdown element, the specific container for dropdown should be displayed. */
+.dropdown:hover .signout-container {
+  display: block;
+}

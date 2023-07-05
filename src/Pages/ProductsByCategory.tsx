@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
-import "styles/index.css";
 import { useLoaderData } from "react-router";
 import { ProductFiltersEntity } from "interfaces/Filter";
 import { parseImageUrl } from "services/helpers";
@@ -18,31 +17,31 @@ export const ProductsByCategory = () => {
       <div className="filter-row">
         <span className="flex-c-w label-xl">{category}</span>
         <span className="spacer" />
-        <span className="flex-c-w">
-          <span className="price-dropdown">
+        <span className="flex">
+          <span className="dropdown">
             Price
             <ExpandMore />
-            <div className="common-hl-filter price-dropdown-container right">
-              <div>Low to High</div>
+            <div className="price-container common-container">
+              <div className="dropdown-content">Low to High</div>
             </div>
           </span>
-          <span className="rating-dropdown">
+          <span className="dropdown">
             Rating
             <ExpandMore />
-            <div className="common-hl-filter rating-dropdown-container right">
-              <div>Low to High</div>
+            <div className="rating-container common-container">
+              <div className="dropdown-content">Low to High</div>
             </div>
           </span>
-          <span className="popularity-dropdown">
+          <span className="dropdown">
             Popularity
             <ExpandMore />
-            <div className="common-hl-filter popularity-dropdown-container right">
-              <div>Low to High</div>
+            <div className="popularity-container common-container">
+              <div className="dropdown-content">Low to High</div>
             </div>
           </span>
         </span>
       </div>
-      <div className="container">
+      <div className="flex">
         <div className="filter-v">
           {Object.entries(filtersData.productFiltersData).map(
             ([propertyName, values]) => (

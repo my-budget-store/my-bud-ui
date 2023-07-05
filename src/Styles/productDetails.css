@@ -1,0 +1,29 @@
+.images-panel {
+  width: 40%;
+}
+
+.details-panel {
+  position: absolute;
+  left: 55%;
+}
+.product-images {
+  width: 400px;
+  height: auto;
+}
+
+.thumbnails {
+  width: 100px;
+  height: auto;
+}
+
+.product-choices {
+  display: flex;
+  line-height: 30px;
+}
+
+.choice{
+  margin: 3px;
+  background-color: var(--header-bg-color);
+  border-radius: 4px;
+  width: 50px;
+}

@@ -27,8 +27,7 @@ const DesktopHeader = () => {
           <MenuIcon />
           Products
         </label>
-        <div className="dropdown-container">
-          <div className="dropdown-spacer" />
+        <div className="products-container common-container">
           <div className="dropdown-content">
             {productsData &&
               productsData.length > 0 &&
@@ -53,8 +52,7 @@ const DesktopHeader = () => {
               <AccountCircleOutlinedIcon />
               Account
             </Link>
-            <div className="dropdown-container right">
-              <div className="dropdown-spacer" />
+            <div className="signout-container common-container">
               <div className="dropdown-content">
                 <LogoutElement />
               </div>
