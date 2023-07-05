@@ -1,11 +1,8 @@
-import { ProductService } from "services/ProductService";
+import { productService } from "services/productService";
 
 export const productsLoader = () => {
-  let productsData: Product[];
-
   async function GetLoaderData() {
-    productsData = await ProductService.getProducts();
-    return [productsData];
+    return await productService.getProducts();
   }
 
   return GetLoaderData();

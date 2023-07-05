@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ProductApi } from "constants/apiConstants";
 
-export const ProductService = {
+export const productService = {
   getProducts: async (): Promise<Product[] | []> => {
     try {
       const response = await axios.get(ProductApi.Products);

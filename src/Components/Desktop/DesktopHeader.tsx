@@ -9,14 +9,10 @@ import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import { ProductFiltersEntity } from "interfaces/Filter";
 
 const DesktopHeader = () => {
   const auth = useAuth();
-  const [productsData, filtersData] = useLoaderData() as [
-    Product[],
-    ProductFiltersEntity
-  ];
+  const productsData = useLoaderData() as Product[];
 
   return (
     <header>

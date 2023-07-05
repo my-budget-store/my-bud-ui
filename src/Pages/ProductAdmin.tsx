@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-import { ProductService } from "services/ProductService";
+import { productService } from "services/productService";
 import { useAuth } from "react-oidc-context";
 
-const PostProduct = () => {
+const ProductAdmin = () => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState<number | "">("");
@@ -30,7 +30,7 @@ const PostProduct = () => {
     formData.append("quantity", quantity === "" ? "" : quantity.toString());
 
     try {
-      const response = (await ProductService.createProduct(
+      const response = (await productService.createProduct(
         auth.user?.access_token,
         formData
       )) as Product;
@@ -90,4 +90,4 @@ const PostProduct = () => {
   );
 };
 
-export default PostProduct;
+export default ProductAdmin;

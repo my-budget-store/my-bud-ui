@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ArrowRight, ExpandMore } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
 import "styles/index.css";
 import { useLoaderData } from "react-router";

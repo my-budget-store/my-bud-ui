@@ -11,7 +11,7 @@ import { productsLoader } from "router/loaders/productsLoader";
 import { createBrowserRouter } from "react-router-dom";
 import { ProductsByCategory } from "pages/ProductsByCategory";
 import { productsByCategoryLoader } from "./loaders/productsByCategoryLoader";
-import PostProduct from "components/desktop/PostProduct";
+import ProductAdmin from "pages/ProductAdmin";
 
 export const router: any = createBrowserRouter([
   {
@@ -54,7 +54,7 @@ export const router: any = createBrowserRouter([
           },
           {
             path: "/product/create",
-            element: <PostProduct />,
+            element: <ProductAdmin />,
           },
         ],
       },
