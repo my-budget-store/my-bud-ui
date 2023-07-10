@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { ProductFiltersEntity } from "interfaces/Filter";
 import { parseImageUrl } from "services/helpers";
 
@@ -11,6 +11,10 @@ export const ProductsByCategory = () => {
     Product[],
     ProductFiltersEntity
   ];
+  const navigate = useNavigate();
+  const ProductImageClickHandler = (selectedProductId: number) => {
+    navigate(`/ProductDetails/${selectedProductId}`);
+  };
 
   return (
     <>
@@ -64,7 +68,11 @@ export const ProductsByCategory = () => {
           return (
             <span className="card-container" key={product.productId}>
               <span className="card">
-                <img src={imageUrl} alt="" />
+                <img
+                  src={imageUrl}
+                  alt=""
+                  onClick={() => ProductImageClickHandler(product.productId)}
+                />
                 {product.name}
               </span>
             </span>

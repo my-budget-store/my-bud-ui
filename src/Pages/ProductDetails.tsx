@@ -1,9 +1,22 @@
 import { useLoaderData } from "react-router";
 import "styles/productDetails.css";
-import pixel4a from "assets/images/pixel_4a.jpg";
+import { cartService } from "services/cartService";
+import { createCartItem } from "interfaces/CartItem";
+import { useAuth } from "react-oidc-context";
 
 export const ProductDetails = () => {
   const product = useLoaderData() as Product;
+  
+  const auth = useAuth();
+
+  const addToCartHandler = async () => {
+    const createCartItem: createCartItem = {
+      productId: product.productId,
+      quantity: 1,
+    };
+
+    await cartService.createCartItem(auth.user?.access_token, createCartItem);
+  };
 
   return (
     <>
@@ -14,11 +27,11 @@ export const ProductDetails = () => {
       <div className="flex">
         <span className="images-panel">
           <div>
-            <img src={pixel4a} alt="" className="product-images" />
+            {/* <img src={pixel4a} alt="" className="product-images" /> */}
           </div>
           <div>
-            <img src={pixel4a} alt="" className="thumbnails" />
-            <img src={pixel4a} alt="" className="thumbnails" />
+            {/* <img src={pixel4a} alt="" className="thumbnails" />
+            <img src={pixel4a} alt="" className="thumbnails" /> */}
           </div>
         </span>
         <span className="details-panel">
@@ -29,7 +42,11 @@ export const ProductDetails = () => {
           </ul>
           Price: 1000
           <div>
-            <input type="submit" value="Add to Cart" />
+            <input
+              type="button"
+              value="Add to Cart"
+              onClick={addToCartHandler}
+            />
           </div>
         </span>
       </div>

@@ -28,3 +28,8 @@
   position: relative;
   top: 9rem;
 }
+
+.cart-product-image {
+  width: 200px;
+  height: auto;
+}

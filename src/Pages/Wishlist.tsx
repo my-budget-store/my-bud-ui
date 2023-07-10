@@ -7,7 +7,7 @@ export default function Wishlist() {
       <h1> Your Wishlist</h1>
       <div className="flex-c-w">
         <span className="card">
-          <img src={pixel4a} alt="" />
+          {/* <img src={pixel4a} alt="" /> */}
           Pixel 4a
         </span>
       </div>

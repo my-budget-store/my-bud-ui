@@ -1,7 +1,6 @@
 import { ArrowRight, ExpandMore } from "@mui/icons-material";
 import "styles/products.css";
 import "styles/index.css";
-import pixel4a from "assets/images/pixel_4a.jpg";
 
 export default function Products() {
   return (
@@ -38,7 +37,7 @@ export default function Products() {
       <div className="flex">
         <span className="card-container">
           <span className="card">
-            <img src={pixel4a} alt="" />
+            {/* <img src={pixel4a} alt="" /> */}
             Pixel 4a
           </span>
         </span>

@@ -9,7 +9,7 @@ export default function Home() {
       </h1>
       <div>
         <span className="card">
-          <img src={pixel4a} alt="" />
+          {/* <img src={pixel4a} alt="" /> */}
           Pixel 4a
         </span>
       </div>

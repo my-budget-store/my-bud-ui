@@ -67,3 +67,12 @@
 .dropdown:hover .signout-container {
   display: block;
 }
+
+.year-container {
+  display: none;
+  right: 0.3rem;
+}
+/* on :hover on dropdown element, the specific container for dropdown should be displayed. */
+.dropdown:hover .year-container {
+  display: block;
+}

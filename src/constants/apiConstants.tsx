@@ -16,3 +16,13 @@ export const ProductApi = {
 export const FilterApi = {
   Filters: BaseUrl + "/filters/filter",
 };
+
+export const CartApi = {
+  Cart: BaseUrl + "/cart",
+  createCartItems: BaseUrl + "/cart/addItems",
+};
+
+export const OrderApi = {
+  createOrder: BaseUrl + "/order",
+  orders: BaseUrl + "/order",
+};

@@ -8,6 +8,7 @@ import { AuthProvider } from "react-oidc-context";
 import { oidcConfig } from "constants/oidcConfig";
 import "styles/index.css";
 import "styles/shared/dropdowns.css";
+import "styles/shared/images.css";
 import { RouterProvider } from "react-router";
 import { router as browserRouter } from "router/browserRouter";
 

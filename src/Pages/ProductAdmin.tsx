@@ -29,7 +29,7 @@ const ProductAdmin = () => {
     }
     formData.append("quantity", quantity === "" ? "" : quantity.toString());
 
-    try {
+    try { 
       const response = (await productService.createProduct(
         auth.user?.access_token,
         formData

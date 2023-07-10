@@ -24,6 +24,7 @@
 .choice{
   margin: 3px;
   background-color: var(--header-bg-color);
+  color: var(--header-font-color);
   border-radius: 4px;
   width: 50px;
 }

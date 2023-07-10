@@ -11,18 +11,20 @@ export const productService = {
       return [];
     }
   },
-  getProductById: async (id: number) => {
+  getProductById: async (id: number): Promise<Product> => {
     try {
       const response = await axios.get(ProductApi.Products + "/" + id);
       return response.data;
     } catch (error) {
       console.error("Error retrieving product with id: " + id, error);
-      return [];
+      throw error; // Re-throw the error to propagate it
     }
   },
   getProductsByCategory: async (category: string | undefined) => {
     try {
-      const response = await axios.get(ProductApi.Products + "/category/" + category);
+      const response = await axios.get(
+        ProductApi.Products + "/category/" + category
+      );
       return response.data;
     } catch (error) {
       console.error("Error retrieving product with id: " + category, error);

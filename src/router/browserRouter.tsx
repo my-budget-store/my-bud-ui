@@ -13,6 +13,7 @@ import { ProductsByCategory } from "pages/ProductsByCategory";
 import { productsByCategoryLoader } from "./loaders/productsByCategoryLoader";
 import ProductAdmin from "pages/ProductAdmin";
 import { ProductDetails } from "pages/ProductDetails";
+import { productDetailsLoader } from "./loaders/productDetailsLoader";
 
 export const router: any = createBrowserRouter([
   {
@@ -35,9 +36,9 @@ export const router: any = createBrowserRouter([
         loader: productsByCategoryLoader,
       },
       {
-        path: "/ProductDetails",
+        path: "/ProductDetails/:productId",
         element: <ProductDetails />,
-        // loader: productsByCategoryLoader,
+        loader: productDetailsLoader,
       },
       {
         element: <ProtectedRoutes />,
