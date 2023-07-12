@@ -8,15 +8,19 @@ export default function Account() {
     <>
       <h1>Account Settings</h1>
       <div className={accountStyles["account-container"]}>
-        <span className={accountStyles["options-container"]}>Personalization</span>
+        <span className={accountStyles["options-container"]}>
+          Personalization
+        </span>
         <span className={accountStyles["vl"]} />
         <span className={accountStyles["values-container"]}>
           <div>
             <span>Theme</span>
             <span>
               <select onChange={themeContext.themeIconHandler}>
-                <option value="Black">Black</option>
-                <option value="Brown">Brown</option>
+                <option value=""></option>
+                <option value="dark">Dark</option>
+                <option value="brown">Brown</option>
+                <option value="black">Black</option>
               </select>
             </span>
           </div>

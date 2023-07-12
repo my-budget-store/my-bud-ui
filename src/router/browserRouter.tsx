@@ -6,20 +6,21 @@ import Orders from "pages/Orders";
 import AllProducts from "pages/AllProducts";
 import Wishlist from "pages/Wishlist";
 import Error from "components/Error";
+import ProductAdmin from "pages/ProductAdmin";
 import ProtectedRoutes from "components/ProtectedRoutes";
 import { productsLoader } from "router/loaders/productsLoader";
 import { createBrowserRouter } from "react-router-dom";
 import { ProductsByCategory } from "pages/ProductsByCategory";
 import { productsByCategoryLoader } from "./loaders/productsByCategoryLoader";
-import ProductAdmin from "pages/ProductAdmin";
 import { ProductDetails } from "pages/ProductDetails";
 import { productDetailsLoader } from "./loaders/productDetailsLoader";
+import { productFiltersLoader } from "./loaders/productFiltersLoader";
 
 export const router: any = createBrowserRouter([
   {
     path: "/",
     element: <Header />,
-    loader: productsLoader,
+    loader: productFiltersLoader,
     children: [
       {
         path: "/",
@@ -60,7 +61,7 @@ export const router: any = createBrowserRouter([
             element: <Account />,
           },
           {
-            path: "/product/create",
+            path: "/products/add",
             element: <ProductAdmin />,
           },
         ],

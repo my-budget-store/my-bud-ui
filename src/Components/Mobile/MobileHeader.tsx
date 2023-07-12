@@ -13,7 +13,7 @@ import {
 } from "redux/slices/sideDrawerSlice";
 import { SearchBar } from "../shared/SearchBar";
 import "styles/side-bars.css";
-import "styles/header.css";
+import "styles/mobileHeader.css";
 import { Link } from "react-router-dom";
 
 export default function MobileHeader() {

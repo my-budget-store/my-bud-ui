@@ -6,10 +6,13 @@ import { useAuth } from "react-oidc-context";
 
 export const ProductDetails = () => {
   const product = useLoaderData() as Product;
-  
+
   const auth = useAuth();
 
   const addToCartHandler = async () => {
+    if (!auth.user?.access_token) {
+      auth.signinRedirect();
+    }
     const createCartItem: createCartItem = {
       productId: product.productId,
       quantity: 1,

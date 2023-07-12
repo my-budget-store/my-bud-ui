@@ -1,13 +1,12 @@
 import { User } from "oidc-client-ts";
-import { IdentityConstants as IdentityConstants } from "./apiConstants";
 
 export const oidcConfig = {
-  authority: IdentityConstants.identityServerApi,
-  client_id: IdentityConstants.clientId,
-  redirect_uri: IdentityConstants.redirectUri,
-  response_type: IdentityConstants.code,
-  scope: IdentityConstants.scopes,
-  post_logout_redirect_uri: IdentityConstants.postLogoutRedirectUri,
+  authority: "https://localhost:7121",
+  client_id: "mybud",
+  redirect_uri: window.location.origin + window.location.pathname,
+  response_type: "code",
+  scope:"openid profile products.api",
+  post_logout_redirect_uri: "http://localhost:3000",
   onSigninCallback: (_user: User | void): void => {
     window.history.replaceState({}, document.title, window.location.pathname);
   },

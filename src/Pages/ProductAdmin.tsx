@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { productService } from "services/productService";
 import { useAuth } from "react-oidc-context";
+import "styles/forms.css";
 
 const ProductAdmin = () => {
   const [name, setName] = useState("");
@@ -29,7 +30,7 @@ const ProductAdmin = () => {
     }
     formData.append("quantity", quantity === "" ? "" : quantity.toString());
 
-    try { 
+    try {
       const response = (await productService.createProduct(
         auth.user?.access_token,
         formData
@@ -53,40 +54,74 @@ const ProductAdmin = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
-      />
-      <input
-        type="text"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        placeholder="Category"
-      />
-      <input
-        type="number"
-        value={price === "" ? "" : price}
-        onChange={(e) => setPrice(e.target.value === "" ? "" : parseInt(e.target.value, 10))}
-        placeholder="Price"
-      />
-      <input
-        type="number"
-        value={salePrice === "" ? "" : salePrice}
-        onChange={(e) => setSalePrice(e.target.value === "" ? "" : parseInt(e.target.value, 10))}
-        placeholder="Sale Price"
-      />
-      <input type="file" onChange={handleImageChange} />
-      <input
-        type="number"
-        value={quantity === "" ? "" : quantity}
-        onChange={(e) => setQuantity(e.target.value === "" ? "" : parseInt(e.target.value, 10))}
-        placeholder="Quantity"
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <h1>Add Product</h1>
+      <form onSubmit={handleSubmit} className="form-l form-content">
+        <br />
+        <input
+          type="text"
+          className="text-input form-content"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+        />
+        <br />
+        <input
+          type="text"
+          className="text-input form-content"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Category"
+        />
+        <br />
+        <input
+          type="number"
+          className="text-input form-content"
+          value={price === "" ? "" : price}
+          onChange={(e) =>
+            setPrice(e.target.value === "" ? "" : parseInt(e.target.value, 10))
+          }
+          placeholder="Price"
+        />
+        <br />
+        <input
+          type="number"
+          className="text-input form-content"
+          value={salePrice === "" ? "" : salePrice}
+          onChange={(e) =>
+            setSalePrice(
+              e.target.value === "" ? "" : parseInt(e.target.value, 10)
+            )
+          }
+          placeholder="Sale Price"
+        />
+        <br />
+        <input
+          type="file"
+          className="text-input form-content"
+          onChange={handleImageChange}
+        />
+        <br />
+        <input
+          type="number"
+          className="text-input form-content"
+          value={quantity === "" ? "" : quantity}
+          onChange={(e) =>
+            setQuantity(
+              e.target.value === "" ? "" : parseInt(e.target.value, 10)
+            )
+          }
+          placeholder="Quantity"
+        />
+        <br />
+        <input
+          type="submit"
+          className="text-input form-content"
+          value="Proceed to Add"
+        />
+        <br />
+      </form>
+    </>
   );
 };
 

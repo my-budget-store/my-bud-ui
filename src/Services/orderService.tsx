@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { CartApi, OrderApi } from "constants/apiConstants";
+import { cartApi, ordersApi } from "constants/apiConstants";
 import { Order, OrderItem } from "interfaces/Order";
 
 export const orderService = {
@@ -9,7 +9,7 @@ export const orderService = {
   ): Promise<boolean> => {
     try {
       const response = await axios.post(
-        OrderApi.createOrder,
+        ordersApi.createOrder,
         createOrderRequest,
         {
           headers: {
@@ -28,7 +28,7 @@ export const orderService = {
   },
   getOrders: async (token: string | undefined): Promise<Order[]> => {
     try {
-      const response: AxiosResponse<Order[]> = await axios.get<Order[]>(OrderApi.orders, {
+      const response: AxiosResponse<Order[]> = await axios.get<Order[]>(ordersApi.orders, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

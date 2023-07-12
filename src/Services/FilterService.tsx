@@ -1,14 +1,15 @@
 import axios from "axios";
-import { FilterApi } from "constants/apiConstants";
+import { productFiltersApi } from "constants/apiConstants";
+import { Category } from "interfaces/Category";
 import { ProductFiltersEntity } from "interfaces/Filter";
 
-export const FilterService = {
-  getFilters: async (): Promise<ProductFiltersEntity | undefined> => {
+export const ProductFiltersService = {
+  getCategories: async (): Promise<Category[] | undefined> => {
     try {
-      const response = await axios.get(FilterApi.Filters);
+      const response = await axios.get(productFiltersApi.categories);
       return response.data;
     } catch (error) {
-      console.error("Error retrieving filters:", error);
+      console.error("Error retrieving categories:", error);
     }
     return undefined;
   },
@@ -16,7 +17,9 @@ export const FilterService = {
     category: string | undefined
   ): Promise<ProductFiltersEntity | undefined> => {
     try {
-      const response = await axios.get(FilterApi.Filters + "/" + category);
+      const response = await axios.get(
+        productFiltersApi.searchFilters + "/" + category
+      );
       return response.data;
     } catch (error) {
       console.error(

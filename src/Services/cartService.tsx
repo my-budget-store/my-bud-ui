@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CartApi } from "constants/apiConstants";
+import { cartApi } from "constants/apiConstants";
 import { createCartItem as createCartItemModel } from "interfaces/CartItem";
 
 export const cartService = {
@@ -9,7 +9,7 @@ export const cartService = {
   ) => {
     try {
       const response = await axios.post(
-        CartApi.createCartItems,
+        cartApi.createCartItems,
         createCartItemModel,
         {
           headers: {
@@ -25,7 +25,7 @@ export const cartService = {
   },
   getCartItems: async (token: string | undefined) => {
     try {
-      const response = await axios.get(CartApi.Cart, {
+      const response = await axios.get(cartApi.Cart, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

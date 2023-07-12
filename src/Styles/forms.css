@@ -1,4 +1,4 @@
-form {
+/* form {
   display: block;
   position: relative;
   height: 25rem;
@@ -11,4 +11,18 @@ form {
   background-color: var(--header-bg-color);
   box-shadow: 6px 6px 6px 6px rgb(0 0 0 / 20%);
   text-align: center;
+} */
+
+.form-l {
+  display: flex;
+  color: var(--header-font-color);
+  background-color: var(--header-bg-color);
+  box-shadow: 6px 6px 6px 6px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+.form-content {
+  left: 15px;
+  position: relative;
 }

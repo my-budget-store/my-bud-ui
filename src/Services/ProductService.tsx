@@ -1,10 +1,10 @@
 import axios from "axios";
-import { ProductApi } from "constants/apiConstants";
+import { productApi } from "constants/apiConstants";
 
 export const productService = {
   getProducts: async (): Promise<Product[] | []> => {
     try {
-      const response = await axios.get(ProductApi.Products);
+      const response = await axios.get(productApi.Products);
       return response.data;
     } catch (error) {
       console.error("Error retrieving products:", error);
@@ -13,7 +13,7 @@ export const productService = {
   },
   getProductById: async (id: number): Promise<Product> => {
     try {
-      const response = await axios.get(ProductApi.Products + "/" + id);
+      const response = await axios.get(productApi.Products + "/" + id);
       return response.data;
     } catch (error) {
       console.error("Error retrieving product with id: " + id, error);
@@ -23,7 +23,7 @@ export const productService = {
   getProductsByCategory: async (category: string | undefined) => {
     try {
       const response = await axios.get(
-        ProductApi.Products + "/category/" + category
+        productApi.Products + "/category/" + category
       );
       return response.data;
     } catch (error) {
@@ -33,7 +33,7 @@ export const productService = {
   },
   createProduct: async (token: string | undefined, formData: any) => {
     try {
-      const response = await axios.post(ProductApi.Products, formData, {
+      const response = await axios.post(productApi.Products, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

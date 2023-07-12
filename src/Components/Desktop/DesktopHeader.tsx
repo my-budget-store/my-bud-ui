@@ -9,10 +9,11 @@ import {
   AccountCircle as AccountCircleIcon,
   Menu as MenuIcon,
 } from "@mui/icons-material";
+import { Category, SubCategory } from "interfaces/Category";
 
 const DesktopHeader = () => {
   const auth = useAuth();
-  const productsData = useLoaderData() as Product[];
+  const categoriesData = useLoaderData() as Category[];
 
   return (
     <header>
@@ -25,13 +26,13 @@ const DesktopHeader = () => {
       <span className="dropdown">
         <label className="flex-c-w">
           <MenuIcon />
-          Products
+          Categories
         </label>
-        <div className="products-container common-container">
-          <div className="dropdown-content">
-            {productsData &&
-              productsData.length > 0 &&
-              productsData.map((product: Product) => (
+        <span className="products-container common-container">
+          {/* <div className="dropdown-content">
+            {categoriesData &&
+              categoriesData.length > 0 &&
+              categoriesData.map((product: Product) => (
                 <Link
                   to={`Products/${product.category}`}
                   key={product.productId}
@@ -39,8 +40,40 @@ const DesktopHeader = () => {
                   {product.category}
                 </Link>
               ))}
-          </div>
-        </div>
+          </div> */}
+          {categoriesData &&
+            categoriesData.length > 0 &&
+            categoriesData.map((category: Category) => (
+              <div className="dropdown-content subcategory-subdropdown">
+                <span>
+                  <Link to={`Products/${category.categoryName}`}>
+                    {category.categoryName}
+                  </Link>
+                </span>
+                <span
+                  className="subcategory-container common-container"
+                >
+                  {category.subCategories &&
+                    category.subCategories.length > 0 && (
+                      // <span>
+                      <>
+                        {category.subCategories.map(
+                          (subCategory: SubCategory) => (
+                            <Link
+                              to={`Products/${category.categoryName}/${subCategory.subCategoryName}`}
+                              key={subCategory.subCategoryId}
+                              className="dropdown-content"
+                            >
+                              {subCategory.subCategoryName}
+                            </Link>
+                          )
+                        )}
+                      </>
+                    )}
+                </span>
+              </div>
+            ))}
+        </span>
       </span>
       <SearchBar />
       <span className="spacer" />
@@ -55,6 +88,9 @@ const DesktopHeader = () => {
             <div className="signout-container common-container">
               <div className="dropdown-content">
                 <LogoutElement />
+              </div>
+              <div className="dropdown-content">
+                <Link to="/products/add">Add Products</Link>
               </div>
             </div>
           </span>
